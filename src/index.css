@@ -1,5 +1,14 @@
 body {
   background-color: #1c1e29;
   color: #fff;
-  font-family: Arial, sans-serif; 
+  font-family: Arial, sans-serif;
+}
+
+.habit-item, 
+.day-container {
+  border-color: #323232 !important;
+}
+.habit-item:hover, 
+.day-container:hover {
+  background-color: #2a2d3a !important;
 }
