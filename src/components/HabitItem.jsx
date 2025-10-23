@@ -8,9 +8,16 @@ const HabitItem = ({ habit, onDelete }) => {
   ).length;
   const totalDays = habit.week.length;
 
-  const handleDelete =() => {
-    if (window.confirm("Are you sure you want to delete this habit?")){
-      
+  const handleDelete = () => {
+    if (window.confirm("Are you sure you want to delete this habit?")) {
+      deleteHabitApi(habit.id)
+        .then(() => {
+          onDelete(habit.id);
+        })
+        .catch((error) => {
+          console.error("Error deleting habit:", error);
+          alert("Failed to delete.Check console for details.")
+        });
     }
-  }
+  };
 };
