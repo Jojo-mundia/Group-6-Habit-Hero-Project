@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Clock = () => {
-  const now = new Date();
-  const formattedTime = now.toLocaleTimeString();
-  const formattedDate = now.toLocaleDateString();
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const formattedTime = time.toLocaleTimeString();
+  const formattedDate = time.toLocaleDateString();
 
   return (
     <div
