@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import DayContainer from "./DayContainer";
 
-const WeekView = ({ habits }) => {
+const WeekView = ({ habits, onUpdateHabit }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const habit = habits.find((h) => h.id.toString() === id);
@@ -17,13 +18,7 @@ const WeekView = ({ habits }) => {
   if (!habit.week || habit.week.length === 0) {
     return (
       <div className="container mt-4">
-        <button
-          className="btn btn-secondary mb-3"
-          onClick={() => navigate("/habits")}
-        >
-          Back to Habits
-        </button>
-        <p>No week data available for this habit.</p>
+        <p>No week data available for this habit. Try refreshing.</p>
       </div>
     );
   }
@@ -37,8 +32,21 @@ const WeekView = ({ habits }) => {
         Back to Habits
       </button>
       <h2>Week View: {habit.name}</h2>
+      <div className="row">
+        {habit.week.map((day, index) => (
+          <div key={`${habit.id}-${index}`} className="col-md-4">
+            <DayContainer
+              habit={habit}
+              day={day}
+              dayIndex={index}
+              onUpdateHabit={onUpdateHabit}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default WeekView;
+
