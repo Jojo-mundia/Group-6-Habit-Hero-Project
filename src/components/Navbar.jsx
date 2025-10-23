@@ -12,8 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-dark bg-dark p-3"
-    style={{height: "100px"}}>
+    <nav className="navbar navbar-dark bg-dark p-3" style={{ height: "100px" }}>
       <div className="container-fluid d-flex justify-content-between align-items-center">
         <h1>
           Good {getGreeting()},{user?.firstName}!
@@ -22,16 +21,20 @@ const Navbar = () => {
           <Clock />
           <div className="ms-3">
             <Link className="btn btn-outline-light me-2 " to="/home">
-            Home
-              </Link>
-              <Link className="btn btn-outline-light me-2" to="/add-habit">
+              Home
+            </Link>
+            <Link className="btn btn-outline-light me-2" to="/add-habit">
               Add Habit
-              </Link><Link className="btn btn-outline-light me-2" to="/report">
-              Report </Link>{" "}
-              <UserButton/>
+            </Link>
+            <Link className="btn btn-outline-light me-2" to="/report">
+              Report{" "}
+            </Link>{" "}
+            <UserButton />
           </div>
         </div>
       </div>
     </nav>
-  )
+  );
 };
+
+export default Navbar;
