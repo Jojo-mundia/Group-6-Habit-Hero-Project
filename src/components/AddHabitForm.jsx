@@ -3,10 +3,14 @@ import React, { useState } from "react";
 const AddHabitForm = () => {
   const [name, setName] = useState("");
 
+  const handleSubmit = () => {
+    console.log("Habit added:", name);
+  };
+
   return (
     <div className="container mt-4">
       <h2>Add Habit</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label">Habit Name</label>
           <input
