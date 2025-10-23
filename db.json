@@ -1,0 +1,249 @@
+{
+  "habits": [
+    {
+      "id": "1760993334220",
+      "name": "ben",
+      "userId": "user_123",
+      "week": [
+        {
+          "date": "2025-10-20",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-21",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-22",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-23",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-24",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-25",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-26",
+          "status": "notDone"
+        }
+      ]
+    },
+    {
+      "id": "1760993433437",
+      "name": "nn",
+      "userId": "user_123",
+      "week": [
+        {
+          "date": "2025-10-20",
+          "status": "done"
+        },
+        {
+          "date": "2025-10-21",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-22",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-23",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-24",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-25",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-26",
+          "status": "notDone"
+        }
+      ]
+    },
+    {
+      "id": "1760993644594",
+      "name": "nn",
+      "userId": "user_456",
+      "week": [
+        {
+          "date": "2025-10-20",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-21",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-22",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-23",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-24",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-25",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-26",
+          "status": "notDone"
+        }
+      ]
+    },
+    {
+      "id": "1760994151271",
+      "name": "jh",
+      "userId": "user_456",
+      "week": [
+        {
+          "date": "2025-10-20",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-21",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-22",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-23",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-24",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-25",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-26",
+          "status": "notDone"
+        }
+      ]
+    },
+    {
+      "id": "1760994773049",
+      "name": "ww",
+      "userId": "user_789",
+      "week": [
+        {
+          "date": "2025-10-20",
+          "status": "done"
+        },
+        {
+          "date": "2025-10-21",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-22",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-23",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-24",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-25",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-26",
+          "status": "notDone"
+        }
+      ]
+    },
+    {
+      "id": "1761000499723",
+      "name": "Dancing",
+      "week": [
+        {
+          "date": "2025-10-20",
+          "status": "done"
+        },
+        {
+          "date": "2025-10-21",
+          "status": "done"
+        },
+        {
+          "date": "2025-10-22",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-23",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-24",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-25",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-26",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34LkvJ0wM68lMWLTYqpsfOCL4yn"
+    },
+    {
+      "id": "1761040185036",
+      "name": "tt",
+      "week": [
+        {
+          "date": "2025-10-21",
+          "status": "done"
+        },
+        {
+          "date": "2025-10-22",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-23",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-24",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-25",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-26",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-27",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34LkvJ0wM68lMWLTYqpsfOCL4yn"
+    }
+  ]
+}
