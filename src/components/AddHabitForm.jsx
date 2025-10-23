@@ -3,9 +3,23 @@ import React, { useState } from "react";
 const AddHabitForm = () => {
   const [name, setName] = useState("");
 
+  const generateWeek = () => {
+    const week = [];
+    const today = new Date();
+    for (let i = 0; i < 7; i++) {
+      const date = today; // ❌ bug: should copy new Date(today)
+      date.setDate(today.getDate() + i);
+      week.push({
+        date: date.toISOString().split("T")[0],
+        status: "notDone",
+      });
+    }
+    return week;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Habit added:", name);
+    console.log("New habit:", name, generateWeek());
   };
 
   return (
