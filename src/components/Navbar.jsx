@@ -24,6 +24,11 @@ const Navbar = () => {
             <Link className="btn btn-outline-light me-2 " to="/home">
             Home
               </Link>
+              <Link className="btn btn-outline-light me-2" to="/add-habit">
+              Add Habit
+              </Link><Link className="btn btn-outline-light me-2" to="/report">
+              Report </Link>{" "}
+              <UserButton/>
           </div>
         </div>
       </div>
