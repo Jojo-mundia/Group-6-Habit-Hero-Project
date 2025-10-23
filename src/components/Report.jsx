@@ -30,4 +30,23 @@ const Report = () => {
    * - Calculate completion percentage
    * - List dates when habit was completed
    */
+  const getHabitStats = (habit) => {
+    const completedDays = habit.week.filter(
+      (day) => day.status === "done"
+    ).length; // Count days marked "done"
+
+    const totalDays = habit.week.length; // Total number of days tracked
+
+    const percentage =
+      totalDays > 0 ? Math.round((completedDays / totalDays) * 100) : 0; // Completion %
+
+    const datesDone =
+      habit.week
+        .filter((day) => day.status === "done") // Filter done days
+        .map((day) => day.date) // Extract their dates
+        .join(", ") || "None"; // Join into a readable string
+
+    return { completedDays, totalDays, percentage, datesDone };
+  };
+
   
