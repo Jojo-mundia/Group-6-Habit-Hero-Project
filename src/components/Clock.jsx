@@ -4,9 +4,7 @@ const Clock = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
+    const interval = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -18,8 +16,15 @@ const Clock = () => {
       className="text-center mt-4"
       style={{ fontSize: "14px", color: "#fff" }}
     >
-      <p>{formattedTime}</p>
-      <p>{formattedDate}</p>
+      <time
+        dateTime={time.toISOString()}
+        aria-label={`Current time is ${formattedTime}`}
+      >
+        {formattedTime}
+      </time>
+      <div>
+        <small>{formattedDate}</small>
+      </div>
     </div>
   );
 };
