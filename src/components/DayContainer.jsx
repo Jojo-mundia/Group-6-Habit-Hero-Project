@@ -35,4 +35,32 @@ const handleStatusChange = (status) => {
     });
 };
 
+<div
+  className="day-container p-3 border rounded text-center mb-2"
+  style={{
+    backgroundColor: "black",
+    color: "white",
+    opacity: isFuture ? 0.5 : 1,
+  }}
+>
+  <h5>{new Date(day.date).toLocaleDateString("en-US", { weekday: "long" })}</h5>
+  <p>{day.date}</p>
+  <div className="d-flex justify-content-around">
+    <button
+      className="btn btn-success me-2"
+      onClick={() => handleStatusChange("done")}
+      disabled={isFuture}
+    >
+      Mark Done
+    </button>
+    <button
+      className="btn btn-danger"
+      onClick={() => handleStatusChange("notDone")}
+      disabled={isFuture}
+    >
+      Mark Not Done
+    </button>
+  </div>
+</div>;
+
 export default DayContainer;
