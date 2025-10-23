@@ -3,7 +3,8 @@ import React, { useState } from "react";
 const AddHabitForm = () => {
   const [name, setName] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("Habit added:", name);
   };
 
