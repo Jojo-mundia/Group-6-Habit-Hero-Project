@@ -1,8 +1,18 @@
 import React from "react";
 
 const Clock = () => {
+  const now = new Date();
+  const formattedTime = now.toLocaleTimeString();
+  const formattedDate = now.toLocaleDateString();
+
   return (
-    <div className="clock-placeholder">Clock component coming soon...</div>
+    <div
+      className="text-center mt-4"
+      style={{ fontSize: "14px", color: "#fff" }}
+    >
+      <p>{formattedTime}</p>
+      <p>{formattedDate}</p>
+    </div>
   );
 };
 
