@@ -4,7 +4,6 @@ import DayContainer from "./DayContainer";
 
 /**
  * WeekView Component
- * -------------------
  * Displays the details of a single habit for the week.
  * Each "day" of the week is represented using the DayContainer component.
  * 
