@@ -28,7 +28,13 @@ const AddHabitForm = ({ onAddHabit, userId }) => {
       userId,
     };
 
-    addHabit(newHabit(newHabitData)); // ❌ wrong call
+    addHabit(newHabitData)
+      .then((response) => {
+        onAddHabit(response.data);
+      })
+      .catch((error) => {
+        console.error("Error adding habit:", error);
+      });
   };
 
   return (
