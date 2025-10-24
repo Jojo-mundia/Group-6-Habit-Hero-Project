@@ -31,9 +31,11 @@ const AddHabitForm = ({ onAddHabit, userId }) => {
     addHabit(newHabitData)
       .then((response) => {
         onAddHabit(response.data);
+        setName("");
       })
       .catch((error) => {
         console.error("Error adding habit:", error);
+        alert("Failed to add habit.");
       });
   };
 
@@ -48,6 +50,7 @@ const AddHabitForm = ({ onAddHabit, userId }) => {
             className="form-control"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
         </div>
         <button type="submit" className="btn btn-primary">
