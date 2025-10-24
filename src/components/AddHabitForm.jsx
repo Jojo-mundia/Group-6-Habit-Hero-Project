@@ -19,7 +19,15 @@ const AddHabitForm = ({ onAddHabit, userId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("New habit:", name, generateWeek());
+
+    const newHabitData = {
+      id: Date.now().toString(),
+      name,
+      week: generateWeek(),
+      userId,
+    };
+
+    console.log("New habit created:", newHabitData);
   };
 
   return (
