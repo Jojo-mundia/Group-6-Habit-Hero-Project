@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { addHabit } from "../api";
 
 const AddHabitForm = ({ onAddHabit, userId }) => {
   const [name, setName] = useState("");
@@ -27,7 +28,7 @@ const AddHabitForm = ({ onAddHabit, userId }) => {
       userId,
     };
 
-    console.log("New habit created:", newHabitData);
+    console.log("Ready to send habit:", newHabitData);
   };
 
   return (
