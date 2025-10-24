@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddHabitForm = () => {
+const AddHabitForm = ({ onAddHabit, userId }) => {
   const [name, setName] = useState("");
 
   const generateWeek = () => {
