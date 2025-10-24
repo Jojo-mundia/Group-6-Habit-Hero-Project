@@ -1,12 +1,40 @@
 import React, { useState } from "react";
+import { addHabit } from "../api";
 
-const AddHabitForm = () => {
+const AddHabitForm = ({ onAddHabit, userId }) => {
   const [name, setName] = useState("");
+
+  const generateWeek = () => {
+    const week = [];
+    const today = new Date();
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(today);
+      date.setDate(today.getDate() + i);
+      week.push({
+        date: date.toISOString().split("T")[0],
+        status: "notDone",
+      });
+    }
+    return week;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newHabitData = {
+      id: Date.now().toString(),
+      name,
+      week: generateWeek(),
+      userId,
+    };
+
+    addHabit(newHabit(newHabitData)); // ❌ wrong call
+  };
 
   return (
     <div className="container mt-4">
       <h2>Add Habit</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label">Habit Name</label>
           <input
