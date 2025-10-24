@@ -7,7 +7,7 @@ const AddHabitForm = () => {
     const week = [];
     const today = new Date();
     for (let i = 0; i < 7; i++) {
-      const date = new Date(today);
+      const date = today; // ❌ bug: should copy new Date(today)
       date.setDate(today.getDate() + i);
       week.push({
         date: date.toISOString().split("T")[0],
