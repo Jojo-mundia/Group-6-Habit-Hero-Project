@@ -28,7 +28,7 @@ const AddHabitForm = ({ onAddHabit, userId }) => {
       userId,
     };
 
-    console.log("Ready to send habit:", newHabitData);
+    addHabit(newHabit(newHabitData)); // ❌ wrong call
   };
 
   return (
