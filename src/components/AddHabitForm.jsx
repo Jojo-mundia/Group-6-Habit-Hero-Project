@@ -45,22 +45,21 @@ const AddHabitForm = ({ onAddHabit, userId }) => {
     }
   };
 
-  // Render the form for adding a new habit
   return (
-    <div className="container mt-4">
+    <div className="addHabitContainer">
       <h2>Add New Habit</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Habit Name</label>
+        <div className="formGroup">
+          <label className="formLabel">Habit Name</label>
           <input
             type="text"
-            className="form-control"
+            className="formInput"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required // Makes the input field mandatory
+            required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="addBtn">
           Add Habit
         </button>
       </form>
