@@ -1,65 +1,46 @@
+// Form component for adding new habits to the user's list
 import React, { useState } from "react";
 import { addHabit } from "../api";
 
-// Component for adding a new habit
-// Receives two props:
-// - onAddHabit: a callback function to update the list of habits in the parent component
-// - userId: the ID of the currently logged-in user
 const AddHabitForm = ({ onAddHabit, userId }) => {
-  // Local state to store the name of the new habit
+  // State to hold the habit name input
   const [name, setName] = useState("");
 
-  // Function to generate a 7-day "week" starting from today
-  // Each day includes a date and a default status of "notDone"
+  // Function to generate a week array with dates starting from today
   const generateWeek = () => {
     const week = [];
     const today = new Date();
-
-    // For debugging purposes, log today's date
-    console.log("Today's date:", today.toISOString().split("T")[0]);
-
-    // Create 7 days starting from today
     for (let i = 0; i < 7; i++) {
-      // Clone today's date to avoid mutating it
       const date = new Date(today);
       date.setDate(today.getDate() + i);
-
-      // Push the formatted date and status into the array
       week.push({
-        date: date.toISOString().split("T")[0],
-        status: "notDone",
+        date: date.toISOString().split("T")[0], // Format as YYYY-MM-DD
+        status: "notDone", // Default status for each day
       });
     }
     return week;
   };
 
-  // Handle form submission when the user clicks "Add Habit"
+  // Handle form submission to add a new habit
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents the form from refreshing the page
-
-    // Only proceed if the input is not empty
+    e.preventDefault();
     if (name.trim()) {
-      // Create a new habit object with a unique ID and 7-day week data
+      // Create new habit data object
       const newHabitData = {
-        id: Date.now().toString(), // Use timestamp as a simple unique ID
-        name, // Habit name entered by the user
-        week: generateWeek(), // Automatically generate the week's data
-        userId, // Associate this habit with the current user
+        id: Date.now().toString(), // Simple ID generation
+        name,
+        week: generateWeek(), // Generate the week data
+        userId, // Associate with the current user
       };
-
-      // Send the new habit to the backend API
+      // Send to API and update local state on success
       addHabit(newHabitData)
         .then((response) => {
-          // Notify parent component of the new habit
           onAddHabit(response.data);
-
-          // Clear the input field after successful submission
-          setName("");
+          setName(""); // Clear the input
         })
         .catch((error) => {
-          // Handle any errors that occur during the API request
           console.error("Error adding habit:", error);
-          alert("Failed to add habit. Please try again.");
+          alert("Failed to add habit.");
         });
     }
   };
