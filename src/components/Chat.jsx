@@ -21,4 +21,25 @@ const Chat = ({ shareId }) => {
       else setMessages({}); // No messages yet
     });
   }, [shareId]);
+
+  // Function to send a new message to Firebase
+  const sendMessage = () => {
+    if (!newMessage.trim()) return; // Don't send empty messages
+    const chatRef = ref(database, `chats/${shareId}`);
+    push(chatRef, {
+      userId: user.id,
+      userName: user.firstName,
+      message: newMessage,
+      timestamp: Date.now(),
+    });
+    setNewMessage(""); // Clear input after sending
+  };
+
+  // Function to delete a message (only by the sender)
+  const deleteMessage = (messageId) => {
+    if (window.confirm("Are you sure you want to delete this message?")) {
+      const messageRef = ref(database, `chats/${shareId}/${messageId}`);
+      remove(messageRef);
+    }
+  };
 };
