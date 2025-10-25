@@ -12,3 +12,5 @@ const firebaseConfig = {
 
 // Initialize Firebase app with the config
 const app = initializeApp(firebaseConfig);
+// Export the database instance for use in other parts of the app
+export const database = getDatabase(app);
