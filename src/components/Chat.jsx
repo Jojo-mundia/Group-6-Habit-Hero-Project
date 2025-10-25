@@ -42,4 +42,41 @@ const Chat = ({ shareId }) => {
       remove(messageRef);
     }
   };
+
+  return (
+    <div className="chatContainer">
+      <h6>Chat</h6>
+      {/* Scrollable chat messages area */}
+      <div style={{ maxHeight: "200px", overflowY: "scroll" }}>
+        {Object.entries(messages).map(([key, msg]) => (
+          <p key={key}>
+            <strong>{msg.userName}:</strong> {msg.message}
+            {/* Show delete button only for own messages */}
+            {msg.userId === user?.id && (
+              <button
+                className="deleteMsgBtn"
+                onClick={() => deleteMessage(key)}
+              >
+                Delete
+              </button>
+            )}
+          </p>
+        ))}
+      </div>
+      {/* Input field for new message */}
+      <input
+        type="text"
+        className="messageInput"
+        placeholder="Type a message..."
+        value={newMessage}
+        onChange={(e) => setNewMessage(e.target.value)}
+      />
+      {/* Send button */}
+      <button className="sendBtn" onClick={sendMessage}>
+        Send
+      </button>
+    </div>
+  );
 };
+
+export default Chat;
