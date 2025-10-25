@@ -9,3 +9,6 @@ const firebaseConfig = {
   databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
 };
+
+// Initialize Firebase app with the config
+const app = initializeApp(firebaseConfig);
