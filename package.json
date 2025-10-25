@@ -13,6 +13,7 @@
     "@clerk/clerk-react": "^5.53.3",
     "axios": "^1.12.2",
     "bootstrap": "^5.3.8",
+    "firebase": "^12.4.0",
     "font-awesome": "^4.7.0",
     "json-server": "^1.0.0-beta.3",
     "react": "^19.1.1",

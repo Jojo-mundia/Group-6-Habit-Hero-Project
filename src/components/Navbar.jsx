@@ -1,17 +1,14 @@
+// Navigation bar component with links to different sections of the app
 import React from "react";
 import { Link } from "react-router-dom";
-import { useUser, UserButton } from "@clerk/clerk-react"; // Clerk for user management
-import Clock from "./Clock"; // Custom clock component
+import { useUser, UserButton } from "@clerk/clerk-react";
+import Clock from "./Clock";
 
-/**
- * Navbar Component
- 
- * Displays a greeting, navigation links, live clock, and user button.
- */
 const Navbar = () => {
-  const { user } = useUser(); // Get current user info from Clerk
+  // Get current user from Clerk
+  const { user } = useUser();
 
-  // Determine greeting based on current time
+  // Function to get a time-based greeting
   const getGreeting = () => {
     const hour = new Date().getHours();
     if (hour < 12) return "Morning";
@@ -21,31 +18,32 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-dark bg-dark p-3" style={{ height: "100px" }}>
-      <div className="container-fluid d-flex justify-content-between align-items-center">
+    <nav className="navbar">
+      <div className="navbarContainer">
         {/* Personalized greeting */}
         <h1>
           Good {getGreeting()}, {user?.firstName}!
         </h1>
-
-        {/* Right section: clock + navigation links + user profile button */}
-        <div className="d-flex align-items-center">
-          <Clock /> {/* Displays current time */}
-          <div className="ms-3">
+        <div className="navbarRight">
+          <Clock />
+          <div className="navbarLinks">
             {/* Navigation links */}
-            <Link className="btn btn-outline-light me-2" to="/home">
+            <Link className="navBtn" to="/home">
               Home
             </Link>
-            <Link className="btn btn-outline-light me-2" to="/habits">
+            <Link className="navBtn" to="/habits">
               Habits
             </Link>
-            <Link className="btn btn-outline-light me-2" to="/add-habit">
+            <Link className="navBtn" to="/add-habit">
               Add Habit
             </Link>
-            <Link className="btn btn-outline-light me-2" to="/report">
+            <Link className="navBtn" to="/report">
               Report
             </Link>
-            {/* User profile / sign-out button */}
+            <Link className="navBtn" to="/shared-progress/all">
+              All Shared Progress
+            </Link>
+            {/* User account button */}
             <UserButton />
           </div>
         </div>
