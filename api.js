@@ -1,10 +1,7 @@
-import axios from "axios";
-
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
-
-export const fetchHabits = () => axios.get(`${API_URL}/habits`);
-export const addHabit = (habitData) =>
-  axios.post(`${API_URL}/habits`, habitData);
-export const updateHabit = (id, updatedData) =>
-  axios.put(`${API_URL}/habits/${id}`, updatedData);
-export const deleteHabit = (id) => axios.delete(`${API_URL}/habits/${id}`);
+// Share-related API functions for public habit sharing
+export const fetchShares = () => axios.get(`${API_URL}/shares`);
+export const addShare = (shareData) =>
+  axios.post(`${API_URL}/shares`, shareData);
+export const updateShare = (id, updatedData) =>
+  axios.put(`${API_URL}/shares/${id}`, updatedData);
+export const deleteShare = (id) => axios.delete(`${API_URL}/shares/${id}`);
