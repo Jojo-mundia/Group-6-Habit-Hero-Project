@@ -16,7 +16,7 @@ const SharedProgress = () => {
   // Name of the habit being shown
   const [habitName, setHabitName] = useState("");
 
-  // Load shares based on the ID - either all or for a specific habit
+  // Load shares based on the ID - either all or for a specific habit.
   useEffect(() => {
     fetchShares().then((response) => {
       if (id === "all") {
