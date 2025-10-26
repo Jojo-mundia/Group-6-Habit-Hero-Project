@@ -34,4 +34,26 @@ const SharedProgress = () => {
       }
     });
   }, [id]);
+
+  // Upvotes are now part of the share object, no separate fetching needed
+
+  const handleUpvote = (shareId) => {
+    if (!user) return;
+    const upvoteData = { id: Date.now().toString(), shareId, userId: user.id };
+    addUpvote(upvoteData).then(() => {
+      // Bump up the upvotes in the database
+      const share = shares.find((s) => s.id === shareId);
+      if (share) {
+        const newUpvotes = (share.upvotes || 0) + 1;
+        updateShare(shareId, { ...share, upvotes: newUpvotes }).then(() => {
+          // Update our local list
+          setShares(
+            shares.map((s) =>
+              s.id === shareId ? { ...s, upvotes: newUpvotes } : s
+            )
+          );
+        });
+      }
+    });
+  };
 };
