@@ -15,4 +15,23 @@ const SharedProgress = () => {
 
   // Name of the habit being shown
   const [habitName, setHabitName] = useState("");
+
+  // Load shares based on the ID - either all or for a specific habit
+  useEffect(() => {
+    fetchShares().then((response) => {
+      if (id === "all") {
+        setShares(response.data);
+        setHabitName("All Habits");
+      } else {
+        // Just grab shares for this habit
+        const filteredShares = response.data.filter(
+          (share) => share.habitId === id
+        );
+        setShares(filteredShares);
+        if (filteredShares.length > 0) {
+          setHabitName(filteredShares[0].habitName);
+        }
+      }
+    });
+  }, [id]);
 };
