@@ -659,6 +659,76 @@
         }
       ],
       "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761509672212",
+      "name": "Skin care",
+      "week": [
+        {
+          "date": "2025-10-26",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-27",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-28",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-29",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-30",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-31",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-01",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
+    },
+    {
+      "id": "1761509703372",
+      "name": "Farming",
+      "week": [
+        {
+          "date": "2025-10-26",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-27",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-28",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-29",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-30",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-31",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-01",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
     }
   ],
   "shares": [
@@ -737,6 +807,16 @@
       "completion": 14,
       "comment": "kkk",
       "createdAt": "2025-10-26T19:17:45.892Z"
+    },
+    {
+      "id": "1761509726062",
+      "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1",
+      "userName": "Joanne",
+      "habitId": "1761509703372",
+      "habitName": "Farming",
+      "completion": 0,
+      "comment": "done",
+      "createdAt": "2025-10-26T20:15:26.062Z"
     }
   ],
   "upvotes": [
