@@ -658,15 +658,15 @@
           "status": "notDone"
         }
       ],
-      "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
     },
     {
-      "id": "1761511016834",
-      "name": "formula 1",
+      "id": "1761506589939",
+      "name": "dddd",
       "week": [
         {
           "date": "2025-10-26",
-          "status": "notDone"
+          "status": "done"
         },
         {
           "date": "2025-10-27",
@@ -693,7 +693,7 @@
           "status": "notDone"
         }
       ],
-      "userId": "user_34cQvT40yo54csszmYPKWLd6EzF"
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
     }
   ],
   "shares": [
@@ -707,17 +707,6 @@
       "comment": "2 day streak",
       "createdAt": "2025-10-24T10:36:17.885Z",
       "upvotes": 2
-    },
-    {
-      "id": "1761378193006",
-      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr",
-      "userName": "Mark",
-      "habitId": "1761378122175",
-      "habitName": "bb",
-      "completion": 14,
-      "comment": "progress",
-      "createdAt": "2025-10-25T07:43:13.006Z",
-      "upvotes": 1
     },
     {
       "id": "1761380870525",
@@ -753,14 +742,46 @@
       "upvotes": 18
     },
     {
-      "id": "1761511040212",
-      "userId": "user_34cQvT40yo54csszmYPKWLd6EzF",
-      "userName": "Carl",
-      "habitId": "1761511016834",
-      "habitName": "formula 1",
-      "completion": 0,
-      "comment": "qwerty",
-      "createdAt": "2025-10-26T20:37:20.212Z"
+      "id": "1761505323001",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr",
+      "userName": "Mark",
+      "habitId": "1761299591289",
+      "habitName": "aa",
+      "completion": 14,
+      "comment": "excited",
+      "createdAt": "2025-10-26T19:02:03.001Z",
+      "upvotes": 2
+    },
+    {
+      "id": "1761506265892",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr",
+      "userName": "Mark",
+      "habitId": "1761506252349",
+      "habitName": "kkk",
+      "completion": 14,
+      "comment": "kkk",
+      "createdAt": "2025-10-26T19:17:45.892Z"
+    },
+    {
+      "id": "1761506605993",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr",
+      "userName": "Mark",
+      "habitId": "1761506589939",
+      "habitName": "dddd",
+      "completion": 14,
+      "comment": "ddd",
+      "createdAt": "2025-10-26T19:23:25.993Z",
+      "upvotes": 5
+    },
+    {
+      "id": "1761512100133",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr",
+      "userName": "Mark",
+      "habitId": "1761299591289",
+      "habitName": "aa",
+      "completion": 14,
+      "comment": "aaaaaaa",
+      "createdAt": "2025-10-26T20:55:00.133Z"
     }
   ],
   "upvotes": [
@@ -791,7 +812,7 @@
     },
     {
       "id": "1761378258682",
-      "shareId": "1761378193006",
+      "shareId": null,
       "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
     },
     {
@@ -1002,6 +1023,51 @@
     {
       "id": "1761388266211",
       "shareId": "1761384501919",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761505362309",
+      "shareId": "1761505323001",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761505365309",
+      "shareId": "1761505323001",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761506639272",
+      "shareId": "1761506605993",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761509769082",
+      "shareId": "1761506605993",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761509769882",
+      "shareId": "1761506605993",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761509770247",
+      "shareId": "1761506605993",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761509770396",
+      "shareId": "1761506605993",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761509770596",
+      "shareId": "1761506605993",
+      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761509770781",
+      "shareId": "1761506605993",
       "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
     }
   ]
