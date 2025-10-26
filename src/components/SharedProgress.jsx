@@ -56,4 +56,47 @@ const SharedProgress = () => {
       }
     });
   };
+
+  const handleDeleteShare = (shareId) => {
+    if (window.confirm("Are you sure you want to delete this share?")) {
+      deleteShare(shareId).then(() => {
+        setShares(shares.filter((share) => share.id !== shareId));
+      });
+    }
+  };
+
+  return (
+    <div className="sharedProgressContainer">
+      <h2>Shared Progress for {habitName}</h2>
+      {shares.map((share) => (
+        <div key={share.id} className="shareItem">
+          <h5>
+            {share.userName}'s Progress on {share.habitName}
+          </h5>
+          <p>Completion: {share.completion}%</p>
+          <p>Comment: {share.comment}</p>
+          <p>
+            Upvotes: {share.upvotes || 0}{" "}
+            <button
+              className="upvoteBtn"
+              onClick={() => handleUpvote(share.id)}
+            >
+              👍
+            </button>
+            {share.userId === user?.id && (
+              <button
+                className="deleteShareBtn"
+                onClick={() => handleDeleteShare(share.id)}
+              >
+                Delete Share
+              </button>
+            )}
+          </p>
+          <Chat shareId={share.id} />
+        </div>
+      ))}
+    </div>
+  );
 };
+
+export default SharedProgress;
