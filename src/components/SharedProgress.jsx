@@ -10,4 +10,9 @@ const SharedProgress = () => {
   const { user } = useUser();
   // Get habit ID from URL
   const { id } = useParams();
+  // Holds the shared progress items
+  const [shares, setShares] = useState([]);
+
+  // Name of the habit being shown
+  const [habitName, setHabitName] = useState("");
 };
