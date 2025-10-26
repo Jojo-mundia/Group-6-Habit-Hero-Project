@@ -4,6 +4,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
+<<<<<<< HEAD
 .habit-item, 
 .day-container {
   border-color: #323232 !important;
@@ -12,3 +13,14 @@ body {
 .day-container:hover {
   background-color: #2a2d3a !important;
 }
+=======
+.habit-item,
+.day-container {
+  border-color: #323232 !important;
+}
+
+.habit-item:hover,
+.day-container:hover {
+  background-color: #2a2d3a !important;
+}
+>>>>>>> origin/main
