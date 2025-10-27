@@ -10,6 +10,7 @@ import Report from "./components/Report"; // Import Report component
 import Clock from "./components/Clock";
 import { fetchHabits } from "./api";
 import SharedProgress from "./components/SharedProgress";
+import Home from "./components/Home";
 import SignInPage from "./components/SignInPage";
 
 function App() {
@@ -72,23 +73,9 @@ function App() {
       <Navbar />
       <Routes>
         {/* Home page route */}
-        <Route
-          path="/"
-          element={
-            <div className="welcomeContainer">
-              <h2>Welcome, {user.firstName}!</h2>
-            </div>
-          }
-        />
+        <Route path="/" element={<Home />} />
         {/* Another home route for consistency */}
-        <Route
-          path="/home"
-          element={
-            <div className="welcomeContainer">
-              <h2>Welcome, {user.firstName}!</h2>
-            </div>
-          }
-        />
+        <Route path="/home" element={<Home />} />
         {/* Habits list page */}
         <Route
           path="/habits"
