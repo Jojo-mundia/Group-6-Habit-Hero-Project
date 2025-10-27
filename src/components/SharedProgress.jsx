@@ -12,6 +12,7 @@ const SharedProgress = () => {
   const { id } = useParams();
   // Holds the shared progress items
   const [shares, setShares] = useState([]);
+
   // Name of the habit being shown
   const [habitName, setHabitName] = useState("");
 
@@ -22,6 +23,7 @@ const SharedProgress = () => {
         setShares(response.data);
         setHabitName("All Habits");
       } else {
+        // Just grab shares for this habit
         const filteredShares = response.data.filter(
           (share) => share.habitId === id
         );
@@ -33,15 +35,18 @@ const SharedProgress = () => {
     });
   }, [id]);
 
-  // Handle upvote
+  // Upvotes are now part of the share object, no separate fetching needed
+
   const handleUpvote = (shareId) => {
     if (!user) return;
     const upvoteData = { id: Date.now().toString(), shareId, userId: user.id };
     addUpvote(upvoteData).then(() => {
+      // Bump up the upvotes in the database
       const share = shares.find((s) => s.id === shareId);
       if (share) {
         const newUpvotes = (share.upvotes || 0) + 1;
         updateShare(shareId, { ...share, upvotes: newUpvotes }).then(() => {
+          // Update our local list
           setShares(
             shares.map((s) =>
               s.id === shareId ? { ...s, upvotes: newUpvotes } : s
@@ -72,12 +77,12 @@ const SharedProgress = () => {
           <p>Comment: {share.comment}</p>
           <p>
             Upvotes: {share.upvotes || 0}{" "}
-              <button
-               className="upvote-btn"
-               onClick={() => handleUpvote(share.id)}
-               >👍{" "}
-              </button>
-
+            <button
+              className="upvoteBtn"
+              onClick={() => handleUpvote(share.id)}
+            >
+              👍
+            </button>
             {share.userId === user?.id && (
               <button
                 className="deleteShareBtn"

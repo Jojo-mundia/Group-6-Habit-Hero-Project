@@ -729,6 +729,41 @@
         }
       ],
       "userId": "user_34cT0xU7Tp4Vl9WA3fZTALMm2lb"
+    },
+    {
+      "id": "1761556607021",
+      "name": "coding",
+      "week": [
+        {
+          "date": "2025-10-27",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-28",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-29",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-30",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-31",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-01",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-02",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34cQvT40yo54csszmYPKWLd6EzF"
     }
   ],
   "shares": [
@@ -806,6 +841,16 @@
       "completion": 0,
       "comment": "oilnkjn",
       "createdAt": "2025-10-26T20:57:35.847Z"
+    },
+    {
+      "id": "1761556619434",
+      "userId": "user_34cQvT40yo54csszmYPKWLd6EzF",
+      "userName": "Carl",
+      "habitId": "1761556607021",
+      "habitName": "coding",
+      "completion": 0,
+      "comment": "thissss",
+      "createdAt": "2025-10-27T09:16:59.434Z"
     }
   ],
   "upvotes": [
