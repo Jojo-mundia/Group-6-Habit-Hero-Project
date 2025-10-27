@@ -72,12 +72,12 @@ const SharedProgress = () => {
           <p>Comment: {share.comment}</p>
           <p>
             Upvotes: {share.upvotes || 0}{" "}
-            <button
-              className="upvoteBtn"
-              onClick={() => handleUpvote(share.id)}
-            >
-              👍
-            </button>
+              <button
+               className="upvote-btn"
+               onClick={() => handleUpvote(share.id)}
+               >👍{" "}
+              </button>
+
             {share.userId === user?.id && (
               <button
                 className="deleteShareBtn"
