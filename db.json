@@ -764,7 +764,41 @@
         }
       ],
       "userId": "user_34cQvT40yo54csszmYPKWLd6EzF"
-
+    },
+    {
+      "id": "1761564028028",
+      "name": "soda",
+      "week": [
+        {
+          "date": "2025-10-27",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-28",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-29",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-30",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-31",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-01",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-02",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34cQvT40yo54csszmYPKWLd6EzF"
     }
   ],
   "shares": [
@@ -852,7 +886,6 @@
       "completion": 0,
       "comment": "thissss",
       "createdAt": "2025-10-27T09:16:59.434Z"
-    
     },
     {
       "id": "1761506265892",
@@ -885,7 +918,16 @@
       "comment": "aaaaaaa",
       "createdAt": "2025-10-26T20:55:00.133Z",
       "upvotes": 5
-
+    },
+    {
+      "id": "1761564042393",
+      "userId": "user_34cQvT40yo54csszmYPKWLd6EzF",
+      "userName": "Carl",
+      "habitId": "1761564028028",
+      "habitName": "soda",
+      "completion": 0,
+      "comment": "sprite",
+      "createdAt": "2025-10-27T11:20:42.393Z"
     }
   ],
   "upvotes": [
@@ -1153,7 +1195,6 @@
       "id": "1761548372830",
       "shareId": "1761378193006",
       "userId": "user_34cQvT40yo54csszmYPKWLd6EzF"
-
     },
     {
       "id": "1761505365309",
