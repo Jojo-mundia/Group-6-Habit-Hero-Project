@@ -798,6 +798,7 @@
           "status": "notDone"
         }
       ],
+      "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
       "userId": "user_34cQvT40yo54csszmYPKWLd6EzF"
     }
   ],
@@ -895,6 +896,8 @@
       "habitName": "kkk",
       "completion": 14,
       "comment": "kkk",
+      "createdAt": "2025-10-26T19:17:45.892Z",
+      "upvotes": 1
       "createdAt": "2025-10-26T19:17:45.892Z"
     },
     {
@@ -1250,6 +1253,14 @@
       "id": "1761515272204",
       "shareId": "1761512100133",
       "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+      "id": "1761560958750",
+      "shareId": "1761506265892",
+      "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
+    },
+    {
+      "id": "1761560970022",
+      "shareId": "1761302177885",
+      "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
     }
   ]
 }
