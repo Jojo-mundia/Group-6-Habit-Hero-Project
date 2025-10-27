@@ -156,5 +156,5 @@ Contributions are welcome! Please follow these steps:
 
 ## Links
 
-- Frontend: [Frontend Link]
-- Backend: [Backend Link]
+- Frontend: [https://habit-tracker-frontend-ptkk.onrender.com]
+- Backend: [https://habit-tracker-backend-drzv.onrender.com]

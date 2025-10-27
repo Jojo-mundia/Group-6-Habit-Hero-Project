@@ -16,23 +16,30 @@ const SharedProgress = () => {
   // Name of the habit being shown
   const [habitName, setHabitName] = useState("");
 
-  // Load shares based on the ID - either all or for a specific habit
+  // Load shares based on the ID - either all or for a specific habit.
   useEffect(() => {
-    fetchShares().then((response) => {
-      if (id === "all") {
-        setShares(response.data);
-        setHabitName("All Habits");
-      } else {
-        // Just grab shares for this habit
-        const filteredShares = response.data.filter(
-          (share) => share.habitId === id
-        );
-        setShares(filteredShares);
-        if (filteredShares.length > 0) {
-          setHabitName(filteredShares[0].habitName);
+    console.log("ID from params:", id);
+    fetchShares()
+      .then((response) => {
+        console.log("Fetched shares:", response.data);
+        if (id === "all") {
+          setShares(response.data);
+          setHabitName("All Habits");
+        } else {
+          // Just grab shares for this habit
+          const filteredShares = response.data.filter(
+            (share) => share.habitId === id
+          );
+          setShares(filteredShares);
+          if (filteredShares.length > 0) {
+            setHabitName(filteredShares[0].habitName);
+          }
         }
-      }
-    });
+        console.log("Shares set to:", shares);
+      })
+      .catch((error) => {
+        console.error("Error fetching shares:", error);
+      });
   }, [id]);
 
   // Upvotes are now part of the share object, no separate fetching needed
@@ -81,7 +88,7 @@ const SharedProgress = () => {
               className="upvoteBtn"
               onClick={() => handleUpvote(share.id)}
             >
-              👍
+              👍{" "}
             </button>
             {share.userId === user?.id && (
               <button
