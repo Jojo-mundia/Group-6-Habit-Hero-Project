@@ -211,145 +211,21 @@
       "userId": "user_34LkvJ0wM68lMWLTYqpsfOCL4yn"
     },
     {
-      "id": "1761297921164",
-      "name": "reading",
+      "id": "1761040185036",
+      "name": "tt",
       "week": [
         {
-          "date": "2025-10-24",
+          "date": "2025-10-21",
           "status": "done"
         },
         {
-          "date": "2025-10-25",
+          "date": "2025-10-22",
           "status": "notDone"
         },
         {
-          "date": "2025-10-26",
+          "date": "2025-10-23",
           "status": "notDone"
         },
-        {
-          "date": "2025-10-27",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-28",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-29",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-30",
-          "status": "notDone"
-        }
-      ]
-    },
-    {
-      "id": "1761298322145",
-      "name": "aa",
-      "week": [
-        {
-          "date": "2025-10-24",
-          "status": "done"
-        },
-        {
-          "date": "2025-10-25",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-26",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-27",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-28",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-29",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-30",
-          "status": "notDone"
-        }
-      ]
-    },
-    {
-      "id": "1761298574491",
-      "name": "gg",
-      "week": [
-        {
-          "date": "2025-10-24",
-          "status": "done"
-        },
-        {
-          "date": "2025-10-25",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-26",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-27",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-28",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-29",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-30",
-          "status": "notDone"
-        }
-      ]
-    },
-    {
-      "id": "1761299204701",
-      "name": "bb",
-      "week": [
-        {
-          "date": "2025-10-24",
-          "status": "done"
-        },
-        {
-          "date": "2025-10-25",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-26",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-27",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-28",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-29",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-30",
-          "status": "notDone"
-        }
-      ]
-    },
-    {
-      "id": "1761299233035",
-      "name": "aa",
-      "week": [
         {
           "date": "2025-10-24",
           "status": "notDone"
@@ -364,100 +240,15 @@
         },
         {
           "date": "2025-10-27",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-28",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-29",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-30",
-          "status": "notDone"
-        }
-      ]
-    },
-    {
-      "id": "1761299591289",
-      "name": "aa",
-      "week": [
-        {
-          "date": "2025-10-24",
-          "status": "done"
-        },
-        {
-          "date": "2025-10-25",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-26",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-27",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-28",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-29",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-30",
-          "status": "notDone"
-        }
-      ],
-      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
-    },
-    {
-      "id": "1761301921799",
-      "name": "Singing",
-      "week": [
-        {
-          "date": "2025-10-24",
-          "status": "done"
-        },
-        {
-          "date": "2025-10-25",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-26",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-27",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-28",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-29",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-30",
           "status": "notDone"
         }
       ],
       "userId": "user_34LkvJ0wM68lMWLTYqpsfOCL4yn"
     },
     {
-      "id": "1761378122175",
-      "name": "bb",
+      "id": "1761504280921",
+      "name": "gt pull",
       "week": [
-        {
-          "date": "2025-10-25",
-          "status": "done"
-        },
         {
           "date": "2025-10-26",
           "status": "notDone"
@@ -480,22 +271,22 @@
         },
         {
           "date": "2025-10-31",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-01",
           "status": "notDone"
         }
       ],
-      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+      "userId": "user_34WqgP8oVBPHm4zZWGpuZJLd39Q"
     },
     {
-      "id": "1761380850078",
-      "name": "Jogging",
+      "id": "1761505662668",
+      "name": "add habit",
       "week": [
         {
-          "date": "2025-10-25",
-          "status": "done"
-        },
-        {
           "date": "2025-10-26",
-          "status": "notDone"
+          "status": "done"
         },
         {
           "date": "2025-10-27",
@@ -516,110 +307,9 @@
         {
           "date": "2025-10-31",
           "status": "notDone"
-        }
-      ],
-      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
-    },
-    {
-      "id": "1761382623451",
-      "name": "Singing",
-      "week": [
-        {
-          "date": "2025-10-25",
-          "status": "done"
         },
         {
-          "date": "2025-10-26",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-27",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-28",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-29",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-30",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-31",
-          "status": "notDone"
-        }
-      ],
-      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
-    },
-    {
-      "id": "1761384482555",
-      "name": "qqq",
-      "week": [
-        {
-          "date": "2025-10-25",
-          "status": "done"
-        },
-        {
-          "date": "2025-10-26",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-27",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-28",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-29",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-30",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-31",
-          "status": "notDone"
-        }
-      ],
-      "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
-    },
-    {
-      "id": "1761431778459",
-      "name": "coding",
-      "week": [
-        {
-          "date": "2025-10-25",
-          "status": "done"
-        },
-        {
-          "date": "2025-10-26",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-27",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-28",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-29",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-30",
-          "status": "notDone"
-        },
-        {
-          "date": "2025-10-31",
+          "date": "2025-11-01",
           "status": "notDone"
         }
       ],
