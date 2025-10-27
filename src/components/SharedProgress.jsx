@@ -16,7 +16,7 @@ const SharedProgress = () => {
   // Name of the habit being shown
   const [habitName, setHabitName] = useState("");
 
-  // Load shares based on the ID - either all or for a specific habit
+  // Load shares based on the ID - either all or for a specific habit.
   useEffect(() => {
     fetchShares().then((response) => {
       if (id === "all") {
@@ -80,9 +80,7 @@ const SharedProgress = () => {
             <button
               className="upvoteBtn"
               onClick={() => handleUpvote(share.id)}
-            >
-              👍
-            </button>
+            ></button>
             {share.userId === user?.id && (
               <button
                 className="deleteShareBtn"
