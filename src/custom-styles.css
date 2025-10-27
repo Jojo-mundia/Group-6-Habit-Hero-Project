@@ -354,14 +354,18 @@
 /* These styles are now handled within .shareItem for better specificity */
 
 .signinContainer {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 15px;
-  margin-top: 1.5rem;
+  width: 100vw;
+  height: 100vh;
   text-align: center;
-  background-color: #1c1e29;
-  color: #fff;
-  min-height: 100vh;
+  color: #000;
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  flex-direction: column;
+  background: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .welcomeContainer {
