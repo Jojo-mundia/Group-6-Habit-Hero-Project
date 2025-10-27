@@ -694,6 +694,41 @@
         }
       ],
       "userId": "user_34cQvT40yo54csszmYPKWLd6EzF"
+    },
+    {
+      "id": "1761512068723",
+      "name": "turf",
+      "week": [
+        {
+          "date": "2025-10-26",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-27",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-28",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-29",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-30",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-31",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-01",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34cT0xU7Tp4Vl9WA3fZTALMm2lb"
     }
   ],
   "shares": [
@@ -706,7 +741,7 @@
       "completion": 14,
       "comment": "2 day streak",
       "createdAt": "2025-10-24T10:36:17.885Z",
-      "upvotes": 2
+      "upvotes": 4
     },
     {
       "id": "1761378193006",
@@ -717,7 +752,7 @@
       "completion": 14,
       "comment": "progress",
       "createdAt": "2025-10-25T07:43:13.006Z",
-      "upvotes": 1
+      "upvotes": 2
     },
     {
       "id": "1761380870525",
@@ -761,6 +796,16 @@
       "completion": 0,
       "comment": "qwerty",
       "createdAt": "2025-10-26T20:37:20.212Z"
+    },
+    {
+      "id": "1761512255847",
+      "userId": "user_34cT0xU7Tp4Vl9WA3fZTALMm2lb",
+      "userName": "Carl",
+      "habitId": "1761512068723",
+      "habitName": "turf",
+      "completion": 0,
+      "comment": "oilnkjn",
+      "createdAt": "2025-10-26T20:57:35.847Z"
     }
   ],
   "upvotes": [
@@ -1003,6 +1048,21 @@
       "id": "1761388266211",
       "shareId": "1761384501919",
       "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761515251146",
+      "shareId": "1761302177885",
+      "userId": "user_34cT0xU7Tp4Vl9WA3fZTALMm2lb"
+    },
+    {
+      "id": "1761515252489",
+      "shareId": "1761302177885",
+      "userId": "user_34cT0xU7Tp4Vl9WA3fZTALMm2lb"
+    },
+    {
+      "id": "1761515266136",
+      "shareId": "1761378193006",
+      "userId": "user_34cT0xU7Tp4Vl9WA3fZTALMm2lb"
     }
   ]
 }
