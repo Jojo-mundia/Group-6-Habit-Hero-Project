@@ -1,7 +1,7 @@
 // Main App component handling routing, authentication, and state management for the habit tracker
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useUser, SignIn } from "@clerk/clerk-react";
+import { useUser } from "@clerk/clerk-react";
 import Navbar from "./components/Navbar";
 import HabitList from "./components/HabitList";
 import WeekView from "./components/WeekView";
@@ -10,6 +10,7 @@ import Report from "./components/Report"; // Import Report component
 import Clock from "./components/Clock";
 import { fetchHabits } from "./api";
 import SharedProgress from "./components/SharedProgress";
+import SignInPage from "./components/SignInPage";
 
 function App() {
   // Get user authentication status and user data from Clerk
@@ -62,13 +63,7 @@ function App() {
 
   // If user is not signed in, show the sign-in page
   if (!isSignedIn) {
-    return (
-      <div className="signinContainer">
-        <h1>Welcome to Habit Tracker</h1>
-        <p>Please sign in to access your dashboard.</p>
-        <SignIn />
-      </div>
-    );
+    return <SignInPage />;
   }
 
   // Main app layout with routing
