@@ -1,0 +1,433 @@
+/* Main container for the entire home page - prevents horizontal overflow */
+.home-container {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide scrollbars while keeping scroll functionality for cleaner look */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Enable smooth scrolling for better user experience */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section 1: Hero section with full-screen background and holographic effect */
+.hero-section {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+  background: url("https://plus.unsplash.com/premium_photo-1685977494926-d1f8efd44c3c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1176")
+    no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Container for hero text content */
+.hero-content {
+  max-width: 800px;
+  z-index: 2; /* Above overlay */
+  position: relative;
+}
+
+/* Animated holographic overlay for sci-fi shimmer effect */
+.holographic-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 150, 0.1) 0%,
+    /* Pink */ rgba(0, 204, 255, 0.1) 25%,
+    /* Blue */ rgba(255, 255, 0, 0.1) 50%,
+    /* Yellow */ rgba(255, 0, 150, 0.1) 75%,
+    /* Pink */ rgba(0, 204, 255, 0.1) 100% /* Blue */
+  );
+  background-size: 400% 400%; /* Large for smooth animation */
+  animation: holographic-shimmer 8s ease-in-out infinite;
+  pointer-events: none; /* Doesn't interfere with interactions */
+  mix-blend-mode: overlay; /* Blends with background for magical effect */
+}
+
+/* Keyframe animation for holographic shimmer movement */
+@keyframes holographic-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hero section heading styling */
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+/* Hero section paragraph styling */
+.hero-content p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+/* Section 2: Benefits section with background image and feature list */
+.benefits-section {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+  background: url("https://images.fastcompany.com/image/upload/f_webp,c_fit,w_1920,q_auto/wp-cms-2/2025/08/p-1-91386664-Work-Life-Why-you-might-want-to-think-twice-about-turning-your-hobby-into-a-side-hustle.jpg")
+    no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Container for benefits content */
+.benefits-content {
+  max-width: 800px;
+  z-index: 2; /* Above overlay */
+  position: relative;
+}
+
+/* Benefits section heading */
+.benefits-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+/* Benefits section description */
+.benefits-content p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+/* Unordered list styling for benefits */
+.benefits-content ul {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+/* Individual benefit list items */
+.benefits-content li {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+/* Section 3: Features section with full-screen Ken Burns effect */
+.features-section {
+  position: relative;
+  min-height: 100vh; /* Minimum full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+/* Container for Ken Burns cinematic animation */
+.ken-burns-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Hide overflow for smooth animation */
+}
+
+/* Wrapper for the animated image */
+.ken-burns-image {
+  width: 100%;
+  height: 100%;
+  animation: kenBurns 20s ease-in-out infinite; /* Slow pan and zoom */
+}
+
+/* Image styling within Ken Burns container */
+.ken-burns-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+  animation: kenBurnsZoom 20s ease-in-out infinite; /* Independent zoom */
+}
+
+/* Keyframe animation for Ken Burns pan effect */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  25% {
+    transform: scale(1.1) translate(10px, 10px);
+  }
+  50% {
+    transform: scale(1.2) translate(-10px, -10px);
+  }
+  75% {
+    transform: scale(1.1) translate(-5px, 5px);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+/* Keyframe animation for Ken Burns zoom effect */
+@keyframes kenBurnsZoom {
+  0% {
+    transform: scale(1.1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* Text overlay on top of animated background image */
+.features-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent overlay for text readability */
+  z-index: 2; /* Above background image */
+}
+
+/* Container for features text content */
+.features-text {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+/* Features section heading */
+.features-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+/* Features section description paragraphs */
+.features-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+/* Section 4: Call to Action section with floating quotes and button */
+.call-to-action-section {
+  position: relative;
+  min-height: 100vh; /* Minimum full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 0 20px;
+  overflow: hidden; /* Contain floating elements */
+}
+
+/* Container for CTA text content */
+.cta-content {
+  max-width: 800px;
+  z-index: 2; /* Above floating elements */
+  position: relative;
+}
+
+/* CTA section heading */
+.cta-content h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  text-shadow: none; /* No shadow needed on white background */
+  font-weight: 700;
+  color: black;
+}
+
+/* CTA section description paragraphs */
+.cta-content p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-shadow: none; /* No shadow needed on white background */
+  font-weight: 300;
+  color: black;
+}
+
+/* Primary call-to-action button */
+.cta-button {
+  background: linear-gradient(
+    45deg,
+    #ff6b6b,
+    #ffa500
+  ); /* Orange-red gradient */
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 50px; /* Rounded corners */
+  cursor: pointer;
+  transition: all 0.4s ease; /* Smooth hover transitions */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Button hover effect */
+.cta-button:hover {
+  background: linear-gradient(45deg, #ff5252, #ff8c00); /* Darker gradient */
+  transform: translateY(-3px) scale(1.05); /* Lift and grow effect */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+}
+
+/* Container for floating inspirational quote elements */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Doesn't interfere with interactions */
+  overflow: hidden; /* Contain elements within section */
+}
+
+/* Individual floating quote styling */
+.floating-quote {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 300px;
+  animation: float 6s ease-in-out infinite; /* Continuous floating animation */
+}
+
+/* Position each quote in different corners with staggered delays */
+.floating-quote:nth-child(1) {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-quote:nth-child(2) {
+  top: 25%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.floating-quote:nth-child(3) {
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.floating-quote:nth-child(4) {
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+/* Keyframe animation for floating effect */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-25px) rotate(1deg);
+  }
+}
+
+/* Dark overlay for better text readability on background images */
+.hero-section::before,
+.benefits-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+  z-index: 1; /* Below content but above background */
+}
+
+/* Mobile and tablet responsive design adjustments */
+@media (max-width: 768px) {
+  /* Reduce heading sizes on smaller screens */
+  .hero-content h1,
+  .benefits-content h2,
+  .features-text h2,
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  /* Reduce paragraph sizes on smaller screens */
+  .hero-content p,
+  .benefits-content p,
+  .features-text p,
+  .cta-content p {
+    font-size: 1rem;
+  }
+
+  /* Adjust CTA button size for mobile */
+  .cta-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}
