@@ -15,12 +15,6 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key");
 }
 
-// Prevent page refresh with confirmation
-window.addEventListener("beforeunload", (e) => {
-  e.preventDefault();
-  e.returnValue = "Are you sure you want to leave? Your progress may be lost.";
-});
-
 // Create the root element and render the app with Clerk provider for authentication
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
