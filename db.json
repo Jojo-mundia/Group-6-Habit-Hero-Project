@@ -694,6 +694,41 @@
         }
       ],
       "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761557410583",
+      "name": "running",
+      "week": [
+        {
+          "date": "2025-10-27",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-28",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-29",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-30",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-31",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-01",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-02",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34WqgP8oVBPHm4zZWGpuZJLd39Q"
     }
   ],
   "shares": [
