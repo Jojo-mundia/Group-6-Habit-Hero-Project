@@ -694,6 +694,41 @@
         }
       ],
       "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761560904621",
+      "name": "Skin care",
+      "week": [
+        {
+          "date": "2025-10-27",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-28",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-29",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-30",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-31",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-01",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-02",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
     }
   ],
   "shares": [
@@ -706,7 +741,7 @@
       "completion": 14,
       "comment": "2 day streak",
       "createdAt": "2025-10-24T10:36:17.885Z",
-      "upvotes": 2
+      "upvotes": 3
     },
     {
       "id": "1761380870525",
@@ -760,7 +795,8 @@
       "habitName": "kkk",
       "completion": 14,
       "comment": "kkk",
-      "createdAt": "2025-10-26T19:17:45.892Z"
+      "createdAt": "2025-10-26T19:17:45.892Z",
+      "upvotes": 1
     },
     {
       "id": "1761506605993",
@@ -1095,6 +1131,16 @@
       "id": "1761515272204",
       "shareId": "1761512100133",
       "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
+    },
+    {
+      "id": "1761560958750",
+      "shareId": "1761506265892",
+      "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
+    },
+    {
+      "id": "1761560970022",
+      "shareId": "1761302177885",
+      "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
     }
   ]
 }
