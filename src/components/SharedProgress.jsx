@@ -40,7 +40,7 @@ const SharedProgress = () => {
       .catch((error) => {
         console.error("Error fetching shares:", error);
       });
-  }, [id]);
+  }, [id, shares]);
 
   // Upvotes are now part of the share object, no separate fetching needed
 
