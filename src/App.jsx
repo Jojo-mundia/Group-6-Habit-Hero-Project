@@ -10,6 +10,7 @@ import Report from "./components/Report"; // Import Report component
 import Clock from "./components/Clock";
 import { fetchHabits } from "./api";
 import SharedProgress from "./components/SharedProgress";
+import Home from "./components/Home";
 import SignInPage from "./components/SignInPage";
 
 function App() {
