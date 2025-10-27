@@ -918,16 +918,6 @@
       "comment": "aaaaaaa",
       "createdAt": "2025-10-26T20:55:00.133Z",
       "upvotes": 5
-    },
-    {
-      "id": "1761564042393",
-      "userId": "user_34cQvT40yo54csszmYPKWLd6EzF",
-      "userName": "Carl",
-      "habitId": "1761564028028",
-      "habitName": "soda",
-      "completion": 0,
-      "comment": "sprite",
-      "createdAt": "2025-10-27T11:20:42.393Z"
     }
   ],
   "upvotes": [
