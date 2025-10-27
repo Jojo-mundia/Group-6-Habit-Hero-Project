@@ -72,23 +72,9 @@ function App() {
       <Navbar />
       <Routes>
         {/* Home page route */}
-        <Route
-          path="/"
-          element={
-            <div className="welcomeContainer">
-              <h2>Welcome, {user.firstName}!</h2>
-            </div>
-          }
-        />
+        <Route path="/" element={<Home />} />
         {/* Another home route for consistency */}
-        <Route
-          path="/home"
-          element={
-            <div className="welcomeContainer">
-              <h2>Welcome, {user.firstName}!</h2>
-            </div>
-          }
-        />
+        <Route path="/home" element={<Home />} />
         {/* Habits list page */}
         <Route
           path="/habits"
