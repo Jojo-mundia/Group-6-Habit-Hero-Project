@@ -30,10 +30,49 @@ body.report-page {
 }
 
 .weekViewContainer {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 15px;
-  margin-top: 1.5rem;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+    no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+.weekViewContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.weekViewContainer > * {
+  position: relative;
+  z-index: 2;
+}
+
+.weekViewContent {
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: rgba(28, 30, 41, 0.95);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 .errorContainer {
@@ -195,13 +234,40 @@ body.report-page {
 }
 
 .dayContainer {
-  padding: 1rem;
-  border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
   text-align: center;
-  margin-bottom: 0.5rem;
-  background-color: #1c1e29;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(42, 45, 58, 0.9),
+    rgba(52, 58, 64, 0.9)
+  );
   color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+.dayContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.dayContainer:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  border-color: rgba(102, 126, 234, 0.6);
 }
 
 .dayButtons {
@@ -232,31 +298,263 @@ body.report-page {
   cursor: pointer;
 }
 
+/* Full-width navbar with transparent background */
 .navbar {
-  background-color: #343a40;
+  background: transparent; /* No background to avoid collision */
   color: #fff;
-  padding: 1rem;
-  height: 100px;
-  position: relative;
-  z-index: 3;
+  padding: 0.25rem 0.75rem;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-out;
+  width: 100%;
 }
 
+/* Navbar visible */
+.navbar-visible {
+  transform: translateY(0);
+}
+
+/* Navbar hidden on scroll */
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+/* Container for navbar elements - full width */
 .navbarContainer {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 15px;
+  width: 100%; /* Full width container */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  position: relative; /* For absolute positioning of dropdown */
 }
 
+/* Greeting pushed to the left */
+.navbarLeft {
+  flex: 0 0 auto; /* Fixed width, no grow */
+  text-align: left;
+}
+
+.navbarLeft h1 {
+  margin: 0;
+  font-size: 1.4rem; /* Slightly larger for greeting */
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Links in the center */
+.navbarCenter {
+  flex: 1; /* Allow center to take space */
+  display: flex;
+  justify-content: center;
+}
+
+/* Clock and user to the far right */
 .navbarRight {
+  flex: 0 0 auto; /* Fixed width */
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
+/* Hamburger menu button - always visible */
+.hamburgerBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Link container */
 .navbarLinks {
-  margin-left: 1rem;
+  align-items: center;
+  gap: 0.5rem; /* Even spacing */
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Mobile menu styles */
+.navbarLinksOpen {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 200px;
+  z-index: 1000;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.navbarLinksOpen .navBtn {
+  color: #333;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.navbarLinksOpen .navBtn:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  transform: translateX(5px);
+}
+
+/* Nav button styles - subtle and elegant */
+.navBtn {
+  color: #333; /* Darker gray text for less contrast */
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-weight: 500; /* Less bold */
+  border: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.6)
+  ); /* More transparent gradient */
+  margin: 0 0.25rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  backdrop-filter: blur(8px); /* Reduced blur */
+}
+
+.navBtn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0.75)
+  ); /* Less opaque on hover */
+  transform: translateY(-1px) scale(1.02); /* Subtle lift and scale */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); /* Softer enhanced shadow */
+}
+
+/* Mobile adjustments for navbar */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .navbarContainer {
+    gap: 0.5rem;
+  }
+
+  .navbarLeft h1 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .navbarRight {
+    justify-content: center;
+  }
+
+  .navBtn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    margin: 0 0.125rem;
+  }
+}
+
+/* Mobile responsiveness for shared progress page */
+@media (max-width: 768px) {
+  .sharedProgressContent {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .sharedProgressContent h2 {
+    font-size: 1.8rem;
+  }
+
+  .sharesGrid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1rem;
+  }
+
+  .shareItem {
+    padding: 1.5rem;
+  }
+
+  .shareHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .shareHeader h5 {
+    font-size: 1.2rem;
+  }
+
+  .completionBadge {
+    align-self: flex-start;
+  }
+
+  .shareActions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .chatContainer {
+    padding: 1rem;
+  }
+
+  .chatContainer h6 {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile responsiveness for chat component */
+@media (max-width: 768px) {
+  .messageInput {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .sendBtn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .deleteMsgBtn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+/* Space for fixed navbar */
+body {
+  padding-top: 50px; /* Even smaller for compact navbar */
 }
 
 .navBtn {
@@ -416,103 +714,209 @@ body.report-page {
   color: #ccc;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .reportContainer {
-    padding: 15px;
-  }
-
-  .reportHeader h2 {
-    font-size: 1.5rem;
-  }
-
-  .circularProgress {
-    width: 100px;
-    height: 100px;
-  }
-
-  .circularProgressInner {
-    width: 75px;
-    height: 75px;
-  }
-
-  .percentageText {
-    font-size: 1.2rem;
-  }
-
-  .habitCard {
-    padding: 1rem;
-  }
-
-  .habitHeader h3 {
-    font-size: 1.2rem;
-  }
+.fullScreenWrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
+
 .sharedProgressContainer {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 15px;
-  margin-top: 1.5rem;
-  background-color: #1c1e29;
+  width: 100%;
+  height: 100%;
+  background: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+    no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: #fff;
+  position: relative;
+}
+
+.sharedProgressContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.sharedProgressContainer > * {
+  position: relative;
+  z-index: 2;
+}
+
+.sharedProgressContent {
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: rgba(28, 30, 41, 0.95);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.sharedProgressContent h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sharesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .shareItem {
-  border: 1px solid #495057;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  background-color: #2a2d3a;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease-in-out;
+  background: linear-gradient(
+    135deg,
+    rgba(42, 45, 58, 0.9),
+    rgba(52, 58, 64, 0.9)
+  );
+  border: 1px solid rgba(73, 80, 87, 0.5);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+.shareItem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .shareItem:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  border-color: rgba(102, 126, 234, 0.6);
 }
 
-.shareItem h5 {
+.shareHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.shareHeader h5 {
   color: #17a2b8;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
-.shareItem p {
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
+.completionBadge {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.shareComment {
+  color: #e9ecef;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-style: italic;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+}
+
+.shareActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.upvoteSection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.upvoteSection span {
+  color: #ffc107;
+  font-weight: 600;
 }
 
 .shareItem .upvoteBtn {
-  background-color: #28a745;
+  background: linear-gradient(135deg, #28a745, #20c997);
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1.2rem;
+  width: 45px;
+  height: 45px;
+  font-size: 1.4rem;
   cursor: pointer;
-  margin-left: 0.5rem;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
 }
 
 .shareItem .upvoteBtn:hover {
-  background-color: #218838;
+  background: linear-gradient(135deg, #218838, #17a2b8);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
 }
 
 .shareItem .deleteShareBtn {
-  background-color: #dc3545;
+  background: linear-gradient(135deg, #dc3545, #fd7e14);
   border: none;
-  border-radius: 0.25rem;
-  padding: 0.375rem 0.75rem;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
   color: #fff;
   cursor: pointer;
-  margin-left: 0.5rem;
-  font-size: 0.875rem;
-  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
 }
 
 .shareItem .deleteShareBtn:hover {
-  background-color: #c82333;
+  background: linear-gradient(135deg, #c82333, #e8590c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.6);
 }
 
 /* These styles are now handled within .shareItem for better specificity */
@@ -682,65 +1086,125 @@ body.report-page {
   }
 }
 .chatContainer {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.chatContainer h6 {
+  color: #667eea;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .deleteMsgBtn {
   display: inline-block;
   padding: 0.25rem 0.5rem;
   margin-left: 0.5rem;
-  border: 1px solid #dc3545;
-  border-radius: 0.2rem;
+  border: none;
+  border-radius: 15px;
   color: #fff;
-  background-color: #dc3545;
+  background: linear-gradient(135deg, #dc3545, #fd7e14);
   text-decoration: none;
   cursor: pointer;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+.deleteMsgBtn:hover {
+  background: linear-gradient(135deg, #c82333, #e8590c);
+  transform: scale(1.05);
 }
 
 .messageInput {
   display: block;
   width: 100%;
-  padding: 0.375rem 0.75rem;
-  border: 1px solid #495057;
-  border-radius: 0.25rem;
-  background-color: #343a40;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+.messageInput:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
 }
 
 .sendBtn {
   display: inline-block;
-  padding: 0.375rem 0.75rem;
-  margin-top: 0.25rem;
-  border: 1px solid #007bff;
-  border-radius: 0.25rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
   color: #fff;
-  background-color: #007bff;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   text-decoration: none;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.sendBtn:hover {
+  background: linear-gradient(135deg, #5a6fd8, #6a4195);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
 
 .backButton {
   display: inline-block;
-  padding: 0.375rem 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #6c757d;
-  border-radius: 0.25rem;
-  color: #6c757d;
-  background-color: transparent;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.8),
+    rgba(118, 75, 162, 0.8)
+  );
   text-decoration: none;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+.backButton:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(90, 111, 216, 0.9),
+    rgba(106, 65, 149, 0.9)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  border-color: rgba(102, 126, 234, 0.6);
 }
 
 .weekGrid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .weekColumn {
-  flex: 0 0 33.333333%;
-  max-width: 33.333333%;
-  padding: 0 15px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Add to your Report.css */

@@ -92,9 +92,18 @@ const HabitItem = ({ habit, onDelete }) => {
           Delete
         </button>
       </div>
-      {/* Share modal */}
+      {/* Share modal positioned above the card */}
       {showShareModal && (
-        <div className="shareModal">
+        <div
+          className="shareModal"
+          style={{
+            position: "absolute",
+            top: "-250px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 10000,
+          }}
+        >
           <div className="modalDialog">
             <div className="modalContent">
               <div className="modalHeader">
