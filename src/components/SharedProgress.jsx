@@ -20,7 +20,11 @@ const SharedProgress = () => {
   useEffect(() => {
     fetchShares().then((response) => {
       if (id === "all") {
-        setShares(response.data);
+        // Show all shares except the current user's own shares
+        const otherShares = response.data.filter(
+          (share) => share.userId !== user?.id
+        );
+        setShares(otherShares);
         setHabitName("All Habits");
       } else {
         // Just grab shares for this habit
@@ -33,7 +37,7 @@ const SharedProgress = () => {
         }
       }
     });
-  }, [id]);
+  }, [id, user?.id]);
 
   // Upvotes are now part of the share object, no separate fetching needed
 
