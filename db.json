@@ -349,6 +349,76 @@
         }
       ],
       "userId": "user_34f1dk5kTf1R5gnXegzwaqRu7Hi"
+    },
+    {
+      "id": "1761645690662",
+      "name": "running",
+      "week": [
+        {
+          "date": "2025-10-28",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-29",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-30",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-31",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-01",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-02",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-03",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34f1dk5kTf1R5gnXegzwaqRu7Hi"
+    },
+    {
+      "id": "1761656506688",
+      "name": "water holic",
+      "week": [
+        {
+          "date": "2025-10-28",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-29",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-30",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-10-31",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-01",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-02",
+          "status": "notDone"
+        },
+        {
+          "date": "2025-11-03",
+          "status": "notDone"
+        }
+      ],
+      "userId": "user_34f1dk5kTf1R5gnXegzwaqRu7Hi"
     }
   ],
   "shares": [
@@ -373,6 +443,16 @@
       "comment": "progress",
       "createdAt": "2025-10-25T07:43:13.006Z",
       "upvotes": 4
+    },
+    {
+      "id": "1761645873393",
+      "userId": "user_34f1dk5kTf1R5gnXegzwaqRu7Hi",
+      "userName": "Jeff",
+      "habitId": "1761645690662",
+      "habitName": "running",
+      "completion": 0,
+      "comment": "nice",
+      "createdAt": "2025-10-28T10:04:33.393Z"
     }
   ],
   "upvotes": []
