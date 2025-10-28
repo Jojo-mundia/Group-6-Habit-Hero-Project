@@ -2,7 +2,14 @@
 import React, { useState, useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
 import { useParams } from "react-router-dom";
-import { fetchShares, addUpvote, updateShare, deleteShare } from "../api";
+import {
+  fetchShares,
+  fetchHabits,
+  fetchUpvotes,
+  addUpvote,
+  updateShare,
+  deleteShare,
+} from "../api";
 import Chat from "./Chat";
 
 const SharedProgress = () => {
@@ -12,10 +19,20 @@ const SharedProgress = () => {
   const { id } = useParams();
   // Holds the shared progress items
   const [shares, setShares] = useState([]);
-
+  // Holds habits data
+  const [habits, setHabits] = useState([]);
+  // Holds upvotes data
+  const [upvotes, setUpvotes] = useState([]);
   // Name of the habit being shown
   const [habitName, setHabitName] = useState("");
 
+  // Helper function to calculate completion percentage
+  const calculateCompletion = (week) => {
+    if (!week || week.length === 0) return 0;
+    const completedDays = week.filter((day) => day.completed).length;
+    return Math.round((completedDays / week.length) * 100);
+  };
+
   // Load shares based on the ID - either all or for a specific habit
   useEffect(() => {
     console.log("ID from params:", id);
@@ -66,107 +83,6 @@ const SharedProgress = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, [id]);
-=======
-  // Load shares based on the ID - either all or for a specific habit
-  useEffect(() => {
-    console.log("ID from params:", id);
-    Promise.all([fetchShares(), fetchHabits(), fetchUpvotes()])
-      .then(([sharesResponse, habitsResponse, upvotesResponse]) => {
-        console.log("Fetched shares:", sharesResponse.data);
-        console.log("Fetched habits:", habitsResponse.data);
-        console.log("Fetched upvotes:", upvotesResponse.data);
-
-        const sharesData = sharesResponse.data;
-        const habitsData = habitsResponse.data;
-        const upvotesData = upvotesResponse.data;
-
-        setHabits(habitsData);
-        setUpvotes(upvotesData);
-
-        // Enrich shares with habit details and upvotes
-        const enrichedShares = sharesData.map((share) => {
-          const habit = habitsData.find((h) => h.id === share.habitId);
-          const shareUpvotes = upvotesData.filter(
-            (u) => u.shareId === share.id
-          );
-          return {
-            ...share,
-            habitName: habit ? habit.name : "Unknown Habit",
-            userName: habit ? habit.userName || "Anonymous" : "Anonymous",
-            completion: habit ? calculateCompletion(habit.week) : 0,
-            upvotes: shareUpvotes.length,
-          };
-        });
-
-        // If viewing all habits or no specific id, show all shares
-        if (id === "all" || !id) {
-          setShares(enrichedShares);
-          setHabitName("All Habits");
-        } else {
-          // Filter shares for the specific habit
-          const filteredShares = enrichedShares.filter(
-            (share) => share.habitId === id
-          );
-          setShares(filteredShares);
-          // Set habit name from the first share if available
-          if (filteredShares.length > 0) {
-            setHabitName(filteredShares[0].habitName);
-          }
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, [id]);
-=======
-    console.log("ID from params:", id);
-    Promise.all([fetchShares(), fetchHabits(), fetchUpvotes()])
-      .then(([sharesResponse, habitsResponse, upvotesResponse]) => {
-        console.log("Fetched shares:", sharesResponse.data);
-        console.log("Fetched habits:", habitsResponse.data);
-        console.log("Fetched upvotes:", upvotesResponse.data);
-
-        const sharesData = sharesResponse.data;
-        const habitsData = habitsResponse.data;
-        const upvotesData = upvotesResponse.data;
-
-        setHabits(habitsData);
-        setUpvotes(upvotesData);
-
-        // Enrich shares with habit details and upvotes
-        const enrichedShares = sharesData.map((share) => {
-          const habit = habitsData.find((h) => h.id === share.habitId);
-          const shareUpvotes = upvotesData.filter(
-            (u) => u.shareId === share.id
-          );
-          return {
-            ...share,
-            habitName: habit ? habit.name : "Unknown Habit",
-            userName: habit ? habit.userName || "Anonymous" : "Anonymous",
-            completion: habit ? calculateCompletion(habit.week) : 0,
-            upvotes: shareUpvotes.length,
-          };
-        });
-
-        // If viewing all habits or no specific id, show all shares
-        if (id === "all" || !id) {
-          setShares(enrichedShares);
-          setHabitName("All Habits");
-        } else {
-          // Filter shares for the specific habit
-          const filteredShares = enrichedShares.filter(
-            (share) => share.habitId === id
-          );
-          setShares(filteredShares);
-          // Set habit name from the first share if available
-          if (filteredShares.length > 0) {
-            setHabitName(filteredShares[0].habitName);
-          }
->>>>>>> d1818fe (Fixed errors in shared progress indivdual hobby page)
-        }
-      }
-    });
   }, [id]);
 
   // Upvotes are now part of the share object, no separate fetching needed
