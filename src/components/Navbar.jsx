@@ -68,15 +68,8 @@ const Navbar = () => {
           </h1>
         </div>
 
-        {/* Hamburger menu button for mobile */}
+        {/* Navigation links - hidden on mobile, shown when menu is open */}
         <div className="navbarCenter">
-          <button className="hamburgerBtn" onClick={toggleMenu}>
-            <span className="hamburgerLine"></span>
-            <span className="hamburgerLine"></span>
-            <span className="hamburgerLine"></span>
-          </button>
-
-          {/* Navigation links - hidden on mobile, shown when menu is open */}
           <div className={`navbarLinks ${isMenuOpen ? "navbarLinksOpen" : ""}`}>
             <Link className="navBtn" to="/home" onClick={closeMenu}>
               Home
@@ -100,9 +93,14 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Clock and user button on the right */}
+        {/* Clock, hamburger button, and user button on the right */}
         <div className="navbarRight">
           <Clock />
+          <button className="hamburgerBtn" onClick={toggleMenu}>
+            <span className="hamburgerLine"></span>
+            <span className="hamburgerLine"></span>
+            <span className="hamburgerLine"></span>
+          </button>
           <UserButton />
         </div>
       </div>
