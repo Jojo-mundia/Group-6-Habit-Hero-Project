@@ -924,6 +924,10 @@ body {
 .signinContainer {
   width: 100vw;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
   text-align: center;
   color: #000;
   display: flex;
@@ -934,6 +938,22 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.signinContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.signinContainer > * {
+  position: relative;
+  z-index: 2;
 }
 
 .welcomeContainer {
