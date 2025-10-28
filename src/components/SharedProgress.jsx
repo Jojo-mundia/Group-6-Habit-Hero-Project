@@ -123,44 +123,53 @@ const SharedProgress = () => {
           <h2>Shared Progress for {habitName}</h2>
           {/* Grid layout for shared items */}
           <div className="sharesGrid">
-            {shares.map((share) => (
-              <div key={share.id} className="shareItem">
-                {/* Header with user name and completion badge */}
-                <div className="shareHeader">
-                  <h5>
-                    {share.userName}'s Progress on {share.habitName}
-                  </h5>
-                  <div className="completionBadge">
-                    {share.completion}% Complete
+            {shares.length > 0 ? (
+              shares.map((share) => (
+                <div key={share.id} className="shareItem">
+                  {/* Header with user name and completion badge */}
+                  <div className="shareHeader">
+                    <h5>
+                      {share.userName}'s Progress on {share.habitName}
+                    </h5>
+                    <div className="completionBadge">
+                      {share.completion}% Complete
+                    </div>
                   </div>
-                </div>
-                {/* User's comment */}
-                <p className="shareComment">{share.comment}</p>
-                {/* Actions: upvote and delete buttons */}
-                <div className="shareActions">
-                  <div className="upvoteSection">
-                    <span>Upvotes: {share.upvotes || 0}</span>
-                    <button
-                      className="upvoteBtn"
-                      onClick={() => handleUpvote(share.id)}
-                    >
-                      👍
-                    </button>
+                  {/* User's comment */}
+                  <p className="shareComment">
+                    {share.comment || "No comment provided."}
+                  </p>
+                  {/* Actions: upvote and delete buttons */}
+                  <div className="shareActions">
+                    <div className="upvoteSection">
+                      <span>Upvotes: {share.upvotes || 0}</span>
+                      <button
+                        className="upvoteBtn"
+                        onClick={() => handleUpvote(share.id)}
+                      >
+                        👍
+                      </button>
+                    </div>
+                    {/* Show delete button only for the share owner */}
+                    {share.userId === user?.id && (
+                      <button
+                        className="deleteShareBtn"
+                        onClick={() => handleDeleteShare(share.id)}
+                      >
+                        Delete Share
+                      </button>
+                    )}
                   </div>
-                  {/* Show delete button only for the share owner */}
-                  {share.userId === user?.id && (
-                    <button
-                      className="deleteShareBtn"
-                      onClick={() => handleDeleteShare(share.id)}
-                    >
-                      Delete Share
-                    </button>
-                  )}
+                  {/* Chat component for this share */}
+                  <Chat shareId={share.id} />
                 </div>
-                {/* Chat component for this share */}
-                <Chat shareId={share.id} />
-              </div>
-            ))}
+              ))
+            ) : (
+              <p>
+                No shares available for this habit yet. Be the first to share
+                your progress!
+              </p>
+            )}
           </div>
         </div>
       </div>
