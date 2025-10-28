@@ -57,8 +57,8 @@ const SharedProgress = () => {
           };
         });
 
-        // If viewing all habits, show all shares
-        if (id === "all") {
+        // If viewing all habits or no specific id, show all shares
+        if (id === "all" || !id) {
           setShares(enrichedShares);
           setHabitName("All Habits");
         } else {
