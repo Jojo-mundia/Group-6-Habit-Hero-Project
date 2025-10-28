@@ -1,18 +1,21 @@
-// Navigation bar component with links to different sections of the app
+// Navigation bar component with collapsible menu for mobile and desktop
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useUser, UserButton } from "@clerk/clerk-react";
 import Clock from "./Clock";
 
 const Navbar = () => {
-  // Get current user from Clerk
+  // Get the current authenticated user from Clerk
   const { user } = useUser();
 
   // State for scroll-based navbar visibility
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Function to get a time-based greeting
+  // State for mobile menu toggle
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Function to generate time-based greeting
   const getGreeting = () => {
     const hour = new Date().getHours();
     if (hour < 12) return "Morning";
@@ -21,16 +24,17 @@ const Navbar = () => {
     return "Night";
   };
 
-  // Handle scroll to show/hide navbar
+  // Effect to handle scroll-based navbar visibility
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and past 100px - hide navbar
+        // Hide navbar when scrolling down past 100px
         setIsVisible(false);
+        setIsMenuOpen(false); // Close menu when hiding navbar
       } else {
-        // Scrolling up or at top - show navbar
+        // Show navbar when scrolling up or at top
         setIsVisible(true);
       }
 
@@ -44,6 +48,16 @@ const Navbar = () => {
     };
   }, [lastScrollY]);
 
+  // Function to toggle mobile menu
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Function to close menu when a link is clicked
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className={`navbar ${isVisible ? "navbar-visible" : "navbar-hidden"}`}>
       <div className="navbarContainer">
@@ -54,22 +68,33 @@ const Navbar = () => {
           </h1>
         </div>
 
-        {/* Navigation links in the center */}
+        {/* Hamburger menu button for mobile */}
         <div className="navbarCenter">
-          <div className="navbarLinks">
-            <Link className="navBtn" to="/home">
+          <button className="hamburgerBtn" onClick={toggleMenu}>
+            <span className="hamburgerLine"></span>
+            <span className="hamburgerLine"></span>
+            <span className="hamburgerLine"></span>
+          </button>
+
+          {/* Navigation links - hidden on mobile, shown when menu is open */}
+          <div className={`navbarLinks ${isMenuOpen ? "navbarLinksOpen" : ""}`}>
+            <Link className="navBtn" to="/home" onClick={closeMenu}>
               Home
             </Link>
-            <Link className="navBtn" to="/habits">
+            <Link className="navBtn" to="/habits" onClick={closeMenu}>
               Habits
             </Link>
-            <Link className="navBtn" to="/add-habit">
+            <Link className="navBtn" to="/add-habit" onClick={closeMenu}>
               Add Habit
             </Link>
-            <Link className="navBtn" to="/report">
+            <Link className="navBtn" to="/report" onClick={closeMenu}>
               Report
             </Link>
-            <Link className="navBtn" to="/shared-progress/all">
+            <Link
+              className="navBtn"
+              to="/shared-progress/all"
+              onClick={closeMenu}
+            >
               All Shared Progress
             </Link>
           </div>
