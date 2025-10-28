@@ -31,23 +31,25 @@ const WeekView = ({ habits, onUpdateHabit }) => {
 
   return (
     <div className="weekViewContainer">
-      {/* Back button to habits list */}
-      <button className="backButton" onClick={() => navigate("/habits")}>
-        Back to Habits
-      </button>
-      <h2>Week View: {habit.name}</h2>
-      <div className="weekGrid">
-        {/* Render each day in the week */}
-        {habit.week.map((day, index) => (
-          <div key={`${habit.id}-${index}`} className="weekColumn">
-            <DayContainer
-              habit={habit}
-              day={day}
-              dayIndex={index}
-              onUpdateHabit={onUpdateHabit}
-            />
-          </div>
-        ))}
+      <div className="weekViewContent">
+        {/* Back button to habits list */}
+        <button className="backButton" onClick={() => navigate("/habits")}>
+          Back to Habits
+        </button>
+        <h2>Week View: {habit.name}</h2>
+        <div className="weekGrid">
+          {/* Render each day in the week */}
+          {habit.week.map((day, index) => (
+            <div key={`${habit.id}-${index}`} className="weekColumn">
+              <DayContainer
+                habit={habit}
+                day={day}
+                dayIndex={index}
+                onUpdateHabit={onUpdateHabit}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
