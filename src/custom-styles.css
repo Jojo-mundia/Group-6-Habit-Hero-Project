@@ -215,10 +215,26 @@
 }
 
 .navbar {
-  background-color: #343a40;
+  background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent background */
   color: #fff;
   padding: 1rem;
   height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* Blur effect for modern browsers */
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-visible {
+  transform: translateY(0);
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
 }
 
 .navbarContainer {
@@ -230,13 +246,65 @@
   align-items: center;
 }
 
+.navbarLeft {
+  flex: 1;
+}
+
+.navbarCenter {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
 .navbarRight {
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .navbarLinks {
-  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem;
+    height: auto;
+  }
+
+  .navbarContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navbarLeft h1 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .navbarCenter {
+    order: 2;
+  }
+
+  .navbarRight {
+    order: 3;
+    justify-content: center;
+  }
+
+  .navbarLinks {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .navBtn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
 }
 
 .navBtn {
