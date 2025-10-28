@@ -1,13 +1,13 @@
-# TODO List for Home Page Edits
+# TODO: Make Report Component Cover Whole Page
 
-- [x] Fix section 3 and section 4 layout issues
-- [x] Implement Ken Burns effect for full-screen section 3
-- [x] Restore section 4 (Call to Action) properly
-- [x] Add text overlays on images
-- [x] Make images bigger (300px height)
-- [x] Remove dark rectangle background in section 3
-- [x] Create beautiful UI layout for section 3
-- [x] Recreate section 1 with holographic shimmer effect using nebula image
-- [x] Add human-readable comments to CSS and JSX files
-- [x] Update section 1 background image to specified URL
-- [x] Test the app to verify changes (build successful, dev server running)
+- [x] Update `.reportContainer` in `src/custom-styles.css` to remove max-width, set width: 100%, min-height: 100vh, and margin: 0
+- [x] Add global styles to remove default margins and padding from html and body
+- [x] Add full-page background to body when on report page
+- [x] Remove background from reportContainer to make it transparent
+- [x] Test the page in the browser to confirm the report covers the whole page without white space (dev server running at http://localhost:5174/)
+- [ ] Adjust for mobile responsiveness if needed
+
+# TODO: Center Report Content and Adjust Progress Bar Width
+
+- [x] Update `.reportContainer` to have max-width and center it
+- [x] Update `.progressBar` to not stretch full width
