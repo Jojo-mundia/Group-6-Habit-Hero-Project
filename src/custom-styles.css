@@ -232,29 +232,146 @@ body.report-page {
   cursor: pointer;
 }
 
+/* Full-width navbar with transparent background */
 .navbar {
-  background-color: #343a40;
+  background: transparent; /* No background to avoid collision */
   color: #fff;
-  padding: 1rem;
-  height: 100px;
+  padding: 0.25rem 0.75rem;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-out;
+  width: 100%;
 }
 
+/* Navbar visible */
+.navbar-visible {
+  transform: translateY(0);
+}
+
+/* Navbar hidden on scroll */
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+/* Container for navbar elements - full width */
 .navbarContainer {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 15px;
+  width: 100%; /* Full width container */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
+/* Greeting pushed to the left */
+.navbarLeft {
+  flex: 0 0 auto; /* Fixed width, no grow */
+  text-align: left;
+}
+
+.navbarLeft h1 {
+  margin: 0;
+  font-size: 1.4rem; /* Slightly larger for greeting */
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Links in the center */
+.navbarCenter {
+  flex: 1; /* Allow center to take space */
+  display: flex;
+  justify-content: center;
+}
+
+/* Clock and user to the far right */
 .navbarRight {
+  flex: 0 0 auto; /* Fixed width */
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
+/* Link container */
 .navbarLinks {
-  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Even spacing */
+}
+
+/* Nav button styles - subtle and elegant */
+.navBtn {
+  color: #333; /* Darker gray text for less contrast */
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-weight: 500; /* Less bold */
+  border: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.6)
+  ); /* More transparent gradient */
+  margin: 0 0.25rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  backdrop-filter: blur(8px); /* Reduced blur */
+}
+
+.navBtn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0.75)
+  ); /* Less opaque on hover */
+  transform: translateY(-1px) scale(1.02); /* Subtle lift and scale */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); /* Softer enhanced shadow */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .navbarContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navbarLeft h1 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .navbarCenter {
+    order: 2;
+  }
+
+  .navbarRight {
+    order: 3;
+    justify-content: center;
+  }
+
+  .navbarLinks {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.375rem;
+  }
+
+  .navBtn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    margin: 0 0.125rem;
+  }
+}
+
+/* Space for fixed navbar */
+body {
+  padding-top: 50px; /* Even smaller for compact navbar */
 }
 
 .navBtn {
