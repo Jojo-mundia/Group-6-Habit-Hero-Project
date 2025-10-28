@@ -68,23 +68,27 @@ const HabitItem = ({ habit, onDelete }) => {
   };
 
   return (
-    <div className="habitItem">
+    <div className="habitCard">
       {/* Display habit name and completion */}
-      <div>
-        {habit.name} - {completedDays}/{habit.week.length} days
+      <div className="habitName">{habit.name}</div>
+      <div className="habitCompletion">
+        {completedDays}/{habit.week.length} days completed
       </div>
       {/* Action buttons */}
-      <div>
-        <button className="weekViewBtn" onClick={handleWeekView}>
+      <div className="habitActions">
+        <button className="habitBtn weekViewBtn" onClick={handleWeekView}>
           Week View
         </button>
-        <button className="viewSharesBtn" onClick={handleShareView}>
+        <button className="habitBtn viewSharesBtn" onClick={handleShareView}>
           View Shares
         </button>
-        <button className="shareBtn" onClick={() => setShowShareModal(true)}>
+        <button
+          className="habitBtn shareBtn"
+          onClick={() => setShowShareModal(true)}
+        >
           Share
         </button>
-        <button className="deleteBtn" onClick={handleDelete}>
+        <button className="habitBtn deleteBtn" onClick={handleDelete}>
           Delete
         </button>
       </div>
