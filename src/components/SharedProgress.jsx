@@ -2,7 +2,14 @@
 import React, { useState, useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
 import { useParams } from "react-router-dom";
-import { fetchShares, addUpvote, updateShare, deleteShare } from "../api";
+import {
+  fetchShares,
+  fetchHabits,
+  fetchUpvotes,
+  addUpvote,
+  updateShare,
+  deleteShare,
+} from "../api";
 import Chat from "./Chat";
 
 const SharedProgress = () => {
@@ -14,21 +21,50 @@ const SharedProgress = () => {
   const [shares, setShares] = useState([]);
   // State for the name of the habit being displayed
   const [habitName, setHabitName] = useState("");
+  // State to store habits for mapping shareId to habit details
+  const [habits, setHabits] = useState([]);
+  // State to store upvotes
+  const [upvotes, setUpvotes] = useState([]);
 
-  // Effect to load shares when the component mounts or ID changes
+  // Effect to load shares, habits, and upvotes when the component mounts or ID changes
   useEffect(() => {
     console.log("ID from params:", id);
-    fetchShares()
-      .then((response) => {
-        console.log("Fetched shares:", response.data);
-        // If viewing all habits, show all shares
-        if (id === "all") {
-          setShares(response.data);
+    Promise.all([fetchShares(), fetchHabits(), fetchUpvotes()])
+      .then(([sharesResponse, habitsResponse, upvotesResponse]) => {
+        console.log("Fetched shares:", sharesResponse.data);
+        console.log("Fetched habits:", habitsResponse.data);
+        console.log("Fetched upvotes:", upvotesResponse.data);
+
+        const sharesData = sharesResponse.data;
+        const habitsData = habitsResponse.data;
+        const upvotesData = upvotesResponse.data;
+
+        setHabits(habitsData);
+        setUpvotes(upvotesData);
+
+        // Enrich shares with habit details and upvotes
+        const enrichedShares = sharesData.map((share) => {
+          const habit = habitsData.find((h) => h.id === share.shareId);
+          const shareUpvotes = upvotesData.filter(
+            (u) => u.shareId === share.id
+          );
+          return {
+            ...share,
+            habitName: habit ? habit.name : "Unknown Habit",
+            userName: habit ? habit.userName || "Anonymous" : "Anonymous",
+            completion: habit ? calculateCompletion(habit.week) : 0,
+            upvotes: shareUpvotes.length,
+          };
+        });
+
+        // If viewing all habits or no specific id, show all shares
+        if (id === "all" || !id) {
+          setShares(enrichedShares);
           setHabitName("All Habits");
         } else {
           // Filter shares for the specific habit
-          const filteredShares = response.data.filter(
-            (share) => share.habitId === id
+          const filteredShares = enrichedShares.filter(
+            (share) => share.shareId === id
           );
           setShares(filteredShares);
           // Set habit name from the first share if available
@@ -36,31 +72,33 @@ const SharedProgress = () => {
             setHabitName(filteredShares[0].habitName);
           }
         }
-        console.log("Shares set to:", shares);
+        console.log("Shares set to:", enrichedShares);
       })
       .catch((error) => {
-        console.error("Error fetching shares:", error);
+        console.error("Error fetching data:", error);
       });
   }, [id]); // Dependency on id to refetch when it changes
+
+  // Helper function to calculate completion percentage
+  const calculateCompletion = (week) => {
+    if (!week || week.length === 0) return 0;
+    const doneCount = week.filter((day) => day.status === "done").length;
+    return Math.round((doneCount / week.length) * 100);
+  };
 
   // Function to handle upvoting a share
   const handleUpvote = (shareId) => {
     if (!user) return; // Ensure user is logged in
     const upvoteData = { id: Date.now().toString(), shareId, userId: user.id };
     addUpvote(upvoteData).then(() => {
-      // Find the share and increment upvotes
-      const share = shares.find((s) => s.id === shareId);
-      if (share) {
-        const newUpvotes = (share.upvotes || 0) + 1;
-        updateShare(shareId, { ...share, upvotes: newUpvotes }).then(() => {
-          // Update local state with new upvote count
-          setShares(
-            shares.map((s) =>
-              s.id === shareId ? { ...s, upvotes: newUpvotes } : s
-            )
-          );
-        });
-      }
+      // Update upvotes state
+      setUpvotes([...upvotes, upvoteData]);
+      // Update shares with new upvote count
+      setShares(
+        shares.map((s) =>
+          s.id === shareId ? { ...s, upvotes: s.upvotes + 1 } : s
+        )
+      );
     });
   };
 
