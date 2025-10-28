@@ -22,14 +22,14 @@ html {
 /* Section 1: Hero section with full-screen background and holographic effect */
 .hero-section {
   position: relative;
-  height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Minimum full viewport height for better mobile scrolling */
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   text-align: center;
   padding: 0 20px;
-  background: url("https://plus.unsplash.com/premium_photo-1685977494926-d1f8efd44c3c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1176")
+  background: url("https://images.pexels.com/photos/4737484/pexels-photo-4737484.jpeg")
     no-repeat center center fixed;
   background-size: cover;
   overflow: hidden;
@@ -94,7 +94,7 @@ html {
 /* Section 2: Benefits section with background image and feature list */
 .benefits-section {
   position: relative;
-  height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Minimum full viewport height for better mobile scrolling */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -407,6 +407,38 @@ html {
   z-index: 1; /* Below content but above background */
 }
 
+/* Tablet responsive design adjustments */
+@media (max-width: 1024px) {
+  /* Adjust heading sizes for tablets */
+  .hero-content h1,
+  .benefits-content h2,
+  .features-text h2,
+  .cta-content h2 {
+    font-size: 2.5rem;
+  }
+
+  /* Adjust paragraph sizes for tablets */
+  .hero-content p,
+  .benefits-content p,
+  .features-text p,
+  .cta-content p {
+    font-size: 1.1rem;
+  }
+
+  /* Adjust CTA button size for tablets */
+  .cta-button {
+    padding: 16px 35px;
+    font-size: 1.2rem;
+  }
+
+  /* Adjust floating quotes for tablets */
+  .floating-quote {
+    max-width: 250px;
+    padding: 15px;
+    font-size: 1rem;
+  }
+}
+
 /* Mobile and tablet responsive design adjustments */
 @media (max-width: 768px) {
   /* Reduce heading sizes on smaller screens */
@@ -429,5 +461,78 @@ html {
   .cta-button {
     padding: 15px 30px;
     font-size: 1.1rem;
+  }
+
+  /* Adjust floating quotes for mobile */
+  .floating-quote {
+    max-width: 200px;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  /* Reposition floating quotes to avoid overlap */
+  .floating-quote:nth-child(1) {
+    top: 10%;
+    left: 5%;
+  }
+
+  .floating-quote:nth-child(2) {
+    top: 20%;
+    right: 5%;
+  }
+
+  .floating-quote:nth-child(3) {
+    bottom: 20%;
+    left: 5%;
+  }
+
+  .floating-quote:nth-child(4) {
+    bottom: 10%;
+    right: 5%;
+  }
+}
+
+/* Small mobile responsive design adjustments */
+@media (max-width: 576px) {
+  /* Further reduce heading sizes for small mobiles */
+  .hero-content h1,
+  .benefits-content h2,
+  .features-text h2,
+  .cta-content h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Further reduce paragraph sizes for small mobiles */
+  .hero-content p,
+  .benefits-content p,
+  .features-text p,
+  .cta-content p {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust CTA button for small mobiles */
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  /* Hide floating quotes on very small screens to prevent clutter */
+  .floating-elements {
+    display: none;
+  }
+
+  /* Adjust section padding for small mobiles */
+  .hero-section,
+  .benefits-section,
+  .features-section,
+  .call-to-action-section {
+    padding: 0 15px;
+  }
+
+  /* Adjust benefits list items for small mobiles */
+  .benefits-content li {
+    font-size: 1rem;
+    margin-bottom: 8px;
   }
 }
