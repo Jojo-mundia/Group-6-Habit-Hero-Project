@@ -23,8 +23,17 @@ const Navbar = () => {
 
   // Handle scroll to show/hide navbar
   useEffect(() => {
+    const isHomePage =
+      window.location.pathname === "/" || window.location.pathname === "/home";
+    const scrollElement = isHomePage
+      ? document.querySelector(".full-screen-wrapper")
+      : window;
+
+    if (!scrollElement) return;
+
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      const currentScrollY =
+        scrollElement === window ? window.scrollY : scrollElement.scrollTop;
 
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         // Scrolling down and past 100px - hide navbar
@@ -37,10 +46,10 @@ const Navbar = () => {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    scrollElement.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      scrollElement.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
 

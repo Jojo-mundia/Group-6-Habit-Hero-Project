@@ -7,7 +7,6 @@ import HabitList from "./components/HabitList";
 import WeekView from "./components/WeekView";
 import AddHabitForm from "./components/AddHabitForm";
 import Report from "./components/Report"; // Import Report component
-import Clock from "./components/Clock";
 import { fetchHabits } from "./api";
 import SharedProgress from "./components/SharedProgress";
 import Home from "./components/Home";
@@ -100,7 +99,6 @@ function App() {
         {/* Shared progress page */}
         <Route path="/shared-progress/:id" element={<SharedProgress />} />
       </Routes>
-      <Clock />
     </BrowserRouter>
   );
 }

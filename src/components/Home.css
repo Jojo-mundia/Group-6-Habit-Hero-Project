@@ -1,3 +1,14 @@
+/* Full-screen wrapper to cover entire viewport */
+.full-screen-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto; /* Allow scrolling */
+  z-index: 0; /* Above navbar to allow scroll hiding */
+}
+
 /* Main container for the entire home page - prevents horizontal overflow */
 .home-container {
   overflow-x: hidden;
