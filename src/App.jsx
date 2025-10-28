@@ -99,8 +99,9 @@ function App() {
         <Route path="/report" element={<Report />} />
         {/* Shared progress page */}
         <Route path="/shared-progress/:id" element={<SharedProgress />} />
+        {/* All shared progress page */}
+        <Route path="/shared-progress/all" element={<SharedProgress />} />
       </Routes>
-      <Clock />
     </BrowserRouter>
   );
 }
