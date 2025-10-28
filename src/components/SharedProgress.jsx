@@ -62,15 +62,14 @@ const SharedProgress = () => {
           setShares(enrichedShares);
           setHabitName("All Habits");
         } else {
+          // Find the habit to set the name
+          const habit = habitsData.find((h) => h.id === id);
+          setHabitName(habit ? habit.name : "Unknown Habit");
           // Filter shares for the specific habit
           const filteredShares = enrichedShares.filter(
             (share) => share.shareId === id
           );
           setShares(filteredShares);
-          // Set habit name from the first share if available
-          if (filteredShares.length > 0) {
-            setHabitName(filteredShares[0].habitName);
-          }
         }
         console.log("Shares set to:", enrichedShares);
       })
