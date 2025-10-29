@@ -694,8 +694,6 @@
         }
       ],
       "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
-<<<<<<< HEAD
-=======
     },
     {
       "id": "1761560904621",
@@ -731,7 +729,6 @@
         }
       ],
       "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
->>>>>>> origin/main
     }
   ],
   "shares": [
@@ -798,12 +795,8 @@
       "habitName": "kkk",
       "completion": 14,
       "comment": "kkk",
-<<<<<<< HEAD
-      "createdAt": "2025-10-26T19:17:45.892Z"
-=======
       "createdAt": "2025-10-26T19:17:45.892Z",
       "upvotes": 1
->>>>>>> origin/main
     },
     {
       "id": "1761506605993",
@@ -1140,20 +1133,14 @@
       "userId": "user_34LkCItjljCnHNLDoE4lAdsQTFr"
     },
     {
-<<<<<<< HEAD
       "id": "1761553321828",
       "shareId": "1761302177885",
-      "userId": "user_34cYkNj1951IN90LMTR7tyrCV8M"
-=======
-      "id": "1761560958750",
-      "shareId": "1761506265892",
       "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
     },
     {
       "id": "1761560970022",
       "shareId": "1761302177885",
       "userId": "user_34cMAwCR1Rzzzid3T58bZTAbjO1"
->>>>>>> origin/main
     }
   ]
 }
