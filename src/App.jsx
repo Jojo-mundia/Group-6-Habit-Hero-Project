@@ -1,15 +1,16 @@
 // Main App component handling routing, authentication, and state management for the habit tracker
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useUser, SignIn } from "@clerk/clerk-react";
+import { useUser } from "@clerk/clerk-react";
 import Navbar from "./components/Navbar";
 import HabitList from "./components/HabitList";
 import WeekView from "./components/WeekView";
 import AddHabitForm from "./components/AddHabitForm";
 import Report from "./components/Report"; // Import Report component
-import Clock from "./components/Clock";
 import { fetchHabits } from "./api";
 import SharedProgress from "./components/SharedProgress";
+import Home from "./components/Home";
+import SignInPage from "./components/SignInPage";
 
 function App() {
   // Get user authentication status and user data from Clerk
@@ -62,13 +63,7 @@ function App() {
 
   // If user is not signed in, show the sign-in page
   if (!isSignedIn) {
-    return (
-      <div className="signinContainer">
-        <h1>Welcome to Habit Tracker</h1>
-        <p>Please sign in to access your dashboard.</p>
-        <SignIn />
-      </div>
-    );
+    return <SignInPage />;
   }
 
   // Main app layout with routing
@@ -77,23 +72,9 @@ function App() {
       <Navbar />
       <Routes>
         {/* Home page route */}
-        <Route
-          path="/"
-          element={
-            <div className="welcomeContainer">
-              <h2>Welcome, {user.firstName}!</h2>
-            </div>
-          }
-        />
+        <Route path="/" element={<Home />} />
         {/* Another home route for consistency */}
-        <Route
-          path="/home"
-          element={
-            <div className="welcomeContainer">
-              <h2>Welcome, {user.firstName}!</h2>
-            </div>
-          }
-        />
+        <Route path="/home" element={<Home />} />
         {/* Habits list page */}
         <Route
           path="/habits"
@@ -117,8 +98,9 @@ function App() {
         <Route path="/report" element={<Report />} />
         {/* Shared progress page */}
         <Route path="/shared-progress/:id" element={<SharedProgress />} />
+        {/* All shared progress page */}
+        <Route path="/shared-progress/all" element={<SharedProgress />} />
       </Routes>
-      <Clock />
     </BrowserRouter>
   );
 }

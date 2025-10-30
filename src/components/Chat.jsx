@@ -5,26 +5,29 @@ import { ref, onValue, push, remove } from "firebase/database";
 import { database } from "../firebase";
 
 const Chat = ({ shareId }) => {
-  // Get current user from Clerk
+  // Get the current authenticated user from Clerk
   const { user } = useUser();
-  // State for storing chat messages
+  // State to store the list of chat messages
   const [messages, setMessages] = useState([]);
-  // State for the new message input
+  // State for the new message being typed
   const [newMessage, setNewMessage] = useState("");
 
-  // Listen for real-time updates to the chat for this share
+  // Effect to listen for real-time updates to the chat for this specific share
   useEffect(() => {
     const chatRef = ref(database, `chats/${shareId}`);
     onValue(chatRef, (snapshot) => {
       const data = snapshot.val();
-      if (data) setMessages(data);
-      else setMessages({}); // No messages yet
+      if (data) {
+        setMessages(data); // Set messages if data exists
+      } else {
+        setMessages({}); // Initialize empty object if no messages
+      }
     });
-  }, [shareId]);
+  }, [shareId]); // Re-run when shareId changes
 
-  // Function to send a new message to Firebase
+  // Function to send a new message to Firebase database
   const sendMessage = () => {
-    if (!newMessage.trim()) return; // Don't send empty messages
+    if (!newMessage.trim()) return; // Prevent sending empty messages
     const chatRef = ref(database, `chats/${shareId}`);
     push(chatRef, {
       userId: user.id,
@@ -32,10 +35,10 @@ const Chat = ({ shareId }) => {
       message: newMessage,
       timestamp: Date.now(),
     });
-    setNewMessage(""); // Clear input after sending
+    setNewMessage(""); // Clear the input field after sending
   };
 
-  // Function to delete a message (only by the sender)
+  // Function to delete a message (only allowed for the message sender)
   const deleteMessage = (messageId) => {
     if (window.confirm("Are you sure you want to delete this message?")) {
       const messageRef = ref(database, `chats/${shareId}/${messageId}`);
@@ -45,13 +48,15 @@ const Chat = ({ shareId }) => {
 
   return (
     <div className="chatContainer">
+      {/* Chat section title */}
       <h6>Chat</h6>
-      {/* Scrollable chat messages area */}
+      {/* Scrollable area for displaying messages */}
       <div style={{ maxHeight: "200px", overflowY: "scroll" }}>
         {Object.entries(messages).map(([key, msg]) => (
           <p key={key}>
+            {/* Display username and message */}
             <strong>{msg.userName}:</strong> {msg.message}
-            {/* Show delete button only for own messages */}
+            {/* Delete button only visible for the message author */}
             {msg.userId === user?.id && (
               <button
                 className="deleteMsgBtn"
@@ -63,15 +68,16 @@ const Chat = ({ shareId }) => {
           </p>
         ))}
       </div>
-      {/* Input field for new message */}
+      {/* Input field for typing new messages */}
       <input
         type="text"
         className="messageInput"
         placeholder="Type a message..."
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
+        onKeyPress={(e) => e.key === "Enter" && sendMessage()} // Allow sending with Enter key
       />
-      {/* Send button */}
+      {/* Button to send the message */}
       <button className="sendBtn" onClick={sendMessage}>
         Send
       </button>
