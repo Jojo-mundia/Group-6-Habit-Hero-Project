@@ -140,8 +140,8 @@ const HabitItem = ({ habit, onDelete }) => {
                   type="button"
                   className="submitBtn"
                   onClick={handleShare}
-                >
-                  Share
+               >
+                  Share //this a comment to show how my branch works
                 </button>
               </div>
             </div>
